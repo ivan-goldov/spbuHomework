@@ -2,16 +2,6 @@ package group144.goldov;
 
 public class SinglyLinkedList {
 
-    private class Node {
-        private int value;
-        private Node next;
-
-        private Node(int value, Node next) {
-            this.value = value;
-            this.next = next;
-        }
-    }
-
     private int length;
     private Node head;
 
@@ -20,29 +10,22 @@ public class SinglyLinkedList {
         head = null;
     }
 
-    /**
-     * a method that checks if the list is empty
-     */
+    /** a method that checks if the list is empty */
     public boolean isEmpty() {
         return length == 0;
     }
 
-    /**
-     * a method that shows the length of the list
-     */
+    /** a method that shows the length of the list */
     public int getLength() {
         return length;
     }
 
-    /**
-     * a method that adds a new element to the end of the list
-     */
+    /** a method that adds a new element to the end of the list */
     public void add(int value) {
         if (isEmpty()) {
             head = new Node(value, null);
             length++;
-        }
-        else {
+        } else {
             Node temporary = this.head;
 
             while (temporary.next != null) {
@@ -54,9 +37,7 @@ public class SinglyLinkedList {
         }
     }
 
-    /**
-     * a method that adds a new element after given index
-     */
+    /** a method that adds a new element after given index */
     public void add(int value, int index) {
         if (isEmpty()) {
             add(value);
@@ -87,13 +68,11 @@ public class SinglyLinkedList {
 
     }
 
-    /**
-     * a method that returns an index of given element (or -1 if the element isn't in the list)
-     */
+    /** a method that returns an index of given element (or -1 if the element isn't in the list) */
     public int find(int value) {
         Node temporary = this.head;
         int index = 0;
-        while (this.head != null) {
+        while (temporary != null) {
             if (temporary.value == value) {
                 return index;
             }
@@ -105,17 +84,20 @@ public class SinglyLinkedList {
         return -1;
     }
 
-    /**
-     * a method that removes the element from the list and returns false if the element isn't in the list
-     */
+    /** a method that removes the element from the list and returns false if the element isn't in the list */
     public boolean remove(int value) {
         Node thisNode = this.head;
         Node prevNode = null;
         while (thisNode != null) {
             if (thisNode.value == value) {
-                prevNode.next = thisNode.next;
-                length--;
-                return true;
+                if (prevNode != null) {
+                    prevNode.next = thisNode.next;
+                    length--;
+                    return true;
+                } else {
+                    this.head = thisNode.next;
+                    return true;
+                }
             }
 
             prevNode = thisNode;
@@ -125,9 +107,7 @@ public class SinglyLinkedList {
         return false;
     }
 
-    /**
-     * a method that prints the list
-     */
+    /** a method that prints the list */
     public void print() {
         Node temporary = this.head;
         while (temporary != null) {
@@ -135,4 +115,15 @@ public class SinglyLinkedList {
             temporary = temporary.next;
         }
     }
+
+    private class Node {
+        private int value;
+        private Node next;
+
+        private Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
+    }
+
 }

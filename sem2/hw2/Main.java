@@ -25,5 +25,16 @@ public class Main {
         System.out.print("Printed list : ");
         list.print();
         System.out.println();
+        list.remove(52);
+        System.out.print("Printed list : ");
+        list.print();
+        System.out.println();
+        list.remove(1);
+        System.out.print("Printed list : ");
+        list.print();
+        System.out.println();
+        System.out.println("5's index is " + list.find(5));
+        System.out.println("75's index is " + list.find(75));
+        System.out.println("19's index is " + list.find(19));
     }
 }
