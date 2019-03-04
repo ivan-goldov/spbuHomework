@@ -2,16 +2,6 @@ package group144.goldov;
 
 public class Stack {
 
-    private class Node {
-        private int value;
-        private Node next;
-
-        Node(int value, Node next) {
-            this.value = value;
-            this.next = next;
-        }
-    }
-
     private Node head;
     private int length;
 
@@ -20,27 +10,18 @@ public class Stack {
         length = 0;
     }
 
-    /**
-     * method that checks if stack is empty
-     *
-     */
+    /** method that checks if stack is empty */
     public boolean isEmpty() {
         return length == 0;
     }
 
-    /**
-     * method that pushes element to stack
-     *
-     */
+    /** method that pushes element to stack */
     public void push(int value) {
         head = new Node(value, head);
         length++;
     }
 
-    /**
-     * method that pops element from stack
-     *
-     */
+    /** method that pops element from stack */
     public int pop() {
         if (isEmpty()) {
             return Integer.MIN_VALUE;
@@ -51,28 +32,21 @@ public class Stack {
         return temporaryValue;
     }
 
-    /**
-     * method that shows the last element in stack
-     *
-     */
+    /** method that shows the last element in stack */
     public int peek() {
         if (isEmpty()) {
-            return Integer.MIN_VALUE;
+            System.out.println("The stack is empty");
+            return 0;
         }
         return head.value;
     }
 
-    /**
-     * method that shows legth of the stack
-     *
-     */
+    /** method that shows legth of the stack */
     public int getLength() {
         return length;
     }
 
-    /**
-     * method that prints stack
-     */
+    /** method that prints stack */
     public void print() {
         if (isEmpty()) {
             return;
@@ -83,4 +57,15 @@ public class Stack {
             current = current.next;
         }
     }
+
+    private class Node {
+        private int value;
+        private Node next;
+
+        Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
+    }
+
 }
