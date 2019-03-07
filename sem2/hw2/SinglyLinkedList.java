@@ -5,22 +5,17 @@ public class SinglyLinkedList {
     private int length;
     private Node head;
 
-    public SinglyLinkedList() {
-        length = 0;
-        head = null;
-    }
-
-    /** a method that checks if the list is empty */
+    /** A method that checks if the list is empty */
     public boolean isEmpty() {
         return length == 0;
     }
 
-    /** a method that shows the length of the list */
+    /** A method that shows the length of the list */
     public int getLength() {
         return length;
     }
 
-    /** a method that adds a new element to the end of the list */
+    /** A method that adds a new element to the end of the list */
     public void add(int value) {
         if (isEmpty()) {
             head = new Node(value, null);
@@ -37,7 +32,7 @@ public class SinglyLinkedList {
         }
     }
 
-    /** a method that adds a new element after given index */
+    /** A method that adds a new element after given index */
     public void add(int value, int index) {
         if (isEmpty()) {
             add(value);
@@ -68,7 +63,7 @@ public class SinglyLinkedList {
 
     }
 
-    /** a method that returns an index of given element (or -1 if the element isn't in the list) */
+    /** A method that returns an index of given element (or -1 if the element isn't in the list) */
     public int find(int value) {
         Node temporary = this.head;
         int index = 0;
@@ -84,7 +79,7 @@ public class SinglyLinkedList {
         return -1;
     }
 
-    /** a method that removes the element from the list and returns false if the element isn't in the list */
+    /** A method that removes the element from the list and returns false if the element isn't in the list */
     public boolean remove(int value) {
         Node thisNode = this.head;
         Node prevNode = null;
@@ -107,7 +102,7 @@ public class SinglyLinkedList {
         return false;
     }
 
-    /** a method that prints the list */
+    /** A method that prints the list */
     public void print() {
         Node temporary = this.head;
         while (temporary != null) {
