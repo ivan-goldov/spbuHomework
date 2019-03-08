@@ -91,6 +91,7 @@ public class SinglyLinkedList {
                     return true;
                 } else {
                     this.head = thisNode.next;
+                    length--;
                     return true;
                 }
             }
