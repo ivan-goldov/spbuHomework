@@ -23,7 +23,7 @@ public class QuickSort implements Sorter {
                 swap(array, i, j);
             }
         }
-        swap(array, i+ 1, right);
+        swap(array, i + 1, right);
         return i + 1;
     }
 
