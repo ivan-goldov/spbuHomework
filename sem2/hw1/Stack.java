@@ -19,7 +19,8 @@ public class Stack {
     /** Method that pops element from stack */
     public int pop() {
         if (isEmpty()) {
-            return Integer.MIN_VALUE;
+            System.out.println("The stack is empty");
+            return 0;
         }
         length--;
         int temporaryValue = head.value;
