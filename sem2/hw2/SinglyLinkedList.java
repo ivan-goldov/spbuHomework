@@ -90,8 +90,8 @@ public class SinglyLinkedList {
                     length--;
                     return true;
                 } else {
-                    this.head = thisNode.next;
                     length--;
+                    this.head = thisNode.next;
                     return true;
                 }
             }
