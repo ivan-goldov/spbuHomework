@@ -1,0 +1,20 @@
+package group144.goldov;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+        System.out.print("Enter a size of an array (size must be odd): ");
+        int n = reader.nextInt();
+        int[][] array = new int[n][n];
+        System.out.print("Enter an array: ");
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                array[i][j] = reader.nextInt();
+            }
+        }
+        ConvertMatrixToString converter = new ConvertMatrixToString();
+        System.out.println("Printed array: " + converter.convert(array));
+    }
+}
