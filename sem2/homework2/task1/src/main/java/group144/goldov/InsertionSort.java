@@ -1,6 +1,8 @@
 package group144.goldov;
 
+/** The class that implements Insertion sorting **/
 public class InsertionSort implements Sorter {
+    /** A method that sorts array with Insertion sort **/
     @Override
     public void sort(int[] array) {
         for (int i = 1; i < array.length; ++i) {

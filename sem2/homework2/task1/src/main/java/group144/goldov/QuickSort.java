@@ -1,5 +1,6 @@
 package group144.goldov;
 
+/** The class that implements Insertion sorting **/
 public class QuickSort implements Sorter {
     @Override
     public void sort(int[] array) {
