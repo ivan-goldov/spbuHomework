@@ -1,18 +1,26 @@
 package group144.goldov;
 
+import java.util.EmptyStackException;
+
 /** The class that implements calculator with stack **/
 public class Calculator {
     /** A method that calculates expression **/
-    public int calculate(String expression) throws NumberFormatException, NullPointerException {
+    public int calculate(String expression) throws EmptyStackException {
         ConvertToRPN converter = new ConvertToRPN();
         String[] expressionRpn = converter.convert(expression).split(" ");
         StackList <Integer> stack = new StackList<>();
         for (String s : expressionRpn) {
             switch (s) {
                 case "-": {
-                    int temporaryFirst = stack.pop();
-                    int temporarySecond = stack.pop();
-                    stack.push(temporarySecond - temporaryFirst);
+                    try {
+                        int temporaryFirst = stack.pop();
+                        int temporarySecond = stack.pop();
+                        stack.push(temporarySecond - temporaryFirst);
+                    }
+                    catch (EmptyStackException e) {
+                        System.out.println("You entered incorrect expression");
+                        throw e;
+                    }
                     break;
                 }
                 case "+": {
@@ -20,21 +28,33 @@ public class Calculator {
                         int temporary = stack.pop() + stack.pop();
                         stack.push(temporary);
                     }
-                    catch (NullPointerException e) {
+                    catch (EmptyStackException e) {
                         System.out.println("You entered incorrect expression");
                         throw e;
                     }
                     break;
                 }
                 case "/": {
-                    int temporaryFirst = stack.pop();
-                    int temporarySecond = stack.pop();
-                    stack.push(temporarySecond / temporaryFirst);
+                    try {
+                        int temporaryFirst = stack.pop();
+                        int temporarySecond = stack.pop();
+                        stack.push(temporarySecond / temporaryFirst);
+                    }
+                    catch (EmptyStackException e) {
+                        System.out.println("You entered incorrect expression");
+                        throw e;
+                    }
                     break;
                 }
                 case "*": {
-                    int temporary = stack.pop() * stack.pop();
-                    stack.push(temporary);
+                    try {
+                        int temporary = stack.pop() * stack.pop();
+                        stack.push(temporary);
+                    }
+                    catch (EmptyStackException e) {
+                        System.out.println("You entered incorrect expression");
+                        throw e;
+                    }
                     break;
                 }
                 default:

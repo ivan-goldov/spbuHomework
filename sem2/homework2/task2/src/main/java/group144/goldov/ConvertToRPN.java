@@ -3,7 +3,7 @@ package group144.goldov;
 /** The class that implements convertion to a RPN with Dijkstra's sorter machine **/
 public class ConvertToRPN {
     /** A method that converts an expression to reversed polish notation **/
-    public String convert(String inputString) throws NullPointerException{
+    public String convert(String inputString) throws NullPointerException {
         char[] string = inputString.toCharArray();
         StackList<Character> stack = new StackList<>();
         StringBuilder out = new StringBuilder();
@@ -11,12 +11,18 @@ public class ConvertToRPN {
             switch (c) {
                 case '+':
                 case '-':
-                    while (!stack.isEmpty() && (stack.peek() == '*' || stack.peek() == '/')) {
+                    try {
+                        while (!stack.isEmpty() && (stack.peek() == '*' || stack.peek() == '/')) {
+                            out.append(' ');
+                            out.append(stack.pop());
+                        }
                         out.append(' ');
-                        out.append(stack.pop());
+                        stack.push(c);
                     }
-                    out.append(' ');
-                    stack.push(c);
+                    catch (NullPointerException e) {
+                        System.out.println("You entered worng expression");
+                        throw e;
+                    }
                     break;
                 case '*':
                 case '/':
