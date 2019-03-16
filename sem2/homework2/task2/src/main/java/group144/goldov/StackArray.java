@@ -2,6 +2,7 @@ package group144.goldov;
 
 import java.util.EmptyStackException;
 
+/** The class that implements abstract stack using array **/
 public class StackArray<T> implements Stack<T> {
     private int length;
     private int arraySize;

@@ -1,8 +1,9 @@
 package group144.goldov;
 
+/** The class that implements calculator with stack **/
 public class Calculator {
     /** A method that calculates expression **/
-    public int calculate(String expression) throws NumberFormatException {
+    public int calculate(String expression) throws NumberFormatException, NullPointerException {
         ConvertToRPN converter = new ConvertToRPN();
         String[] expressionRpn = converter.convert(expression).split(" ");
         StackList <Integer> stack = new StackList<>();

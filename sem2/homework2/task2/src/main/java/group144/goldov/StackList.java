@@ -2,6 +2,7 @@ package group144.goldov;
 
 import java.util.EmptyStackException;
 
+/** The class that implements abstract Stack using linked list **/
 public class StackList<T> implements Stack<T> {
     private int length;
     private Node head;

@@ -1,6 +1,6 @@
 package group144.goldov;
 
-
+/** The class that implements convertion to a RPN with Dijkstra's sorter machine **/
 public class ConvertToRPN {
     /** A method that converts an expression to reversed polish notation **/
     public String convert(String inputString) throws NullPointerException{
