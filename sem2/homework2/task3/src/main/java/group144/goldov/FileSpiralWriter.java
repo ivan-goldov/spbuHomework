@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/** The class that outputs converted matrix to the file */
 public class FileSpiralWriter implements SpiralWriter{
     private String fileName;
 

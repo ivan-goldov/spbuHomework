@@ -1,5 +1,6 @@
 package group144.goldov;
 
+/** The class that outputs converted matrix to console */
 public class ConsoleSpiralWriter implements SpiralWriter{
     /** A method that prints array **/
     @Override

@@ -1,5 +1,6 @@
 package group144.goldov;
 
+/** A class that used to convert matrix to string */
 public class ConvertMatrixToString {
     /** A method that spirals around an array and writes elements to a string **/
     public String convert(int[][] array) {
