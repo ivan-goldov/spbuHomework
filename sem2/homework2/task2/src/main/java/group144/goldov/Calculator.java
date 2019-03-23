@@ -19,7 +19,6 @@ public class Calculator {
                     }
                     catch (EmptyStackException e) {
                         System.out.println("You entered incorrect expression");
-                        throw e;
                     }
                     break;
                 }
@@ -30,7 +29,6 @@ public class Calculator {
                     }
                     catch (EmptyStackException e) {
                         System.out.println("You entered incorrect expression");
-                        throw e;
                     }
                     break;
                 }
@@ -42,7 +40,6 @@ public class Calculator {
                     }
                     catch (EmptyStackException e) {
                         System.out.println("You entered incorrect expression");
-                        throw e;
                     }
                     break;
                 }
@@ -53,7 +50,6 @@ public class Calculator {
                     }
                     catch (EmptyStackException e) {
                         System.out.println("You entered incorrect expression");
-                        throw e;
                     }
                     break;
                 }
@@ -64,7 +60,6 @@ public class Calculator {
                     }
                     catch (NumberFormatException e) {
                         System.out.println("You entered wrong expression");
-                        throw e;
                     }
             }
         }
