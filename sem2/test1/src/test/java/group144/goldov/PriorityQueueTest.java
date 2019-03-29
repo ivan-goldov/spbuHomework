@@ -14,22 +14,22 @@ class PriorityQueueTest {
     @Test
     public void getLengthTest() {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
-        priorityQueue.insert(37, 1);
+        priorityQueue.enqueue(37, 1);
         assertEquals(1, priorityQueue.getLength());
     }
 
     @Test
-    public void insertAndDequeueSingleElementTest() throws EmptyPriorityException {
+    public void enqueueAndDequeueSingleElementTest() throws EmptyPriorityException {
         PriorityQueue<String> priorityQueue = new PriorityQueue<>();
-        priorityQueue.insert("Single", 1);
+        priorityQueue.enqueue("Single", 1);
         assertEquals("Single", priorityQueue.dequeue());
     }
 
     @Test
-    public void insertAndDequeueTwoElementsTest() throws EmptyPriorityException {
+    public void enqueueAndDequeueTwoElementsTest() throws EmptyPriorityException {
         PriorityQueue<String> priorityQueue = new PriorityQueue<>();
-        priorityQueue.insert("First", 5);
-        priorityQueue.insert("Second", 20);
+        priorityQueue.enqueue("First", 5);
+        priorityQueue.enqueue("Second", 20);
         assertEquals("Second", priorityQueue.dequeue());
     }
 
@@ -47,11 +47,11 @@ class PriorityQueueTest {
     @Test
     public void dequeueFewElementsTest() throws EmptyPriorityException {
         PriorityQueue<String> priorityQueue = new PriorityQueue<>();
-        priorityQueue.insert("First", 29);
-        priorityQueue.insert("Second", 42);
-        priorityQueue.insert("Third", 10);
-        priorityQueue.insert("Fourth", 5);
-        priorityQueue.insert("Fifth", 90);
+        priorityQueue.enqueue("First", 29);
+        priorityQueue.enqueue("Second", 42);
+        priorityQueue.enqueue("Third", 10);
+        priorityQueue.enqueue("Fourth", 5);
+        priorityQueue.enqueue("Fifth", 90);
         assertEquals("Fifth", priorityQueue.dequeue());
         assertEquals("Second", priorityQueue.dequeue());
         assertEquals("First", priorityQueue.dequeue());
@@ -62,11 +62,11 @@ class PriorityQueueTest {
     @Test
     public void getLengthWithFewElementsTest() throws EmptyPriorityException {
         PriorityQueue<String> priorityQueue = new PriorityQueue<>();
-        priorityQueue.insert("First", 30);
-        priorityQueue.insert("Second", 41);
-        priorityQueue.insert("Third", 9);
-        priorityQueue.insert("Fourth", 6);
-        priorityQueue.insert("Fifth", 53);
+        priorityQueue.enqueue("First", 30);
+        priorityQueue.enqueue("Second", 41);
+        priorityQueue.enqueue("Third", 9);
+        priorityQueue.enqueue("Fourth", 6);
+        priorityQueue.enqueue("Fifth", 53);
         assertEquals(5, priorityQueue.getLength());
         priorityQueue.dequeue();
         assertEquals(4, priorityQueue.getLength());

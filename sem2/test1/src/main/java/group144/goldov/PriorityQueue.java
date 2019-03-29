@@ -16,7 +16,7 @@ public class PriorityQueue  <T> {
     }
 
     /** A method that pushes new element to the queue */
-    public void insert(T value, int priority) {
+    public void enqueue(T value, int priority) {
         length++;
         if (isEmpty()) {
             head = new Element<>(value, priority, null);
