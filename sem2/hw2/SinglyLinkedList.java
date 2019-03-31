@@ -17,9 +17,9 @@ public class SinglyLinkedList {
 
     /** A method that adds a new element to the end of the list */
     public void add(int value) {
+        length++;
         if (isEmpty()) {
             head = new Node(value, null);
-            length++;
         } else {
             Node temporary = this.head;
 
@@ -28,7 +28,6 @@ public class SinglyLinkedList {
             }
 
             temporary.next = new Node(value, null);
-            length++;
         }
     }
 
@@ -85,12 +84,11 @@ public class SinglyLinkedList {
         Node prevNode = null;
         while (thisNode != null) {
             if (thisNode.value == value) {
+                length--;
                 if (prevNode != null) {
                     prevNode.next = thisNode.next;
-                    length--;
                     return true;
                 } else {
-                    length--;
                     this.head = thisNode.next;
                     return true;
                 }
