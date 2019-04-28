@@ -10,8 +10,6 @@ public class Main {
         System.out.println("Enter an expression: ");
         String expression = reader.readLine();
         Calculator calculator = new Calculator();
-        int answer;
-        answer = calculator.calculate(expression);
-        System.out.println("The answer = " + answer);
+        System.out.println("The answer = " + calculator.calculate(expression));
     }
 }
