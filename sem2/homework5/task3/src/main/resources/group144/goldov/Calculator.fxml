@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="392.0" prefWidth="388.0" style="-fx-border-style: asdsad;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group144.goldov.Controller">
+   <children>
+      <TextField fx:id="fieldAnswer" alignment="BOTTOM_RIGHT" editable="false" prefHeight="97.0" prefWidth="388.0">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </TextField>
+      <Button fx:id="buttonOne" layoutX="14.0" layoutY="157.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="1">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonTwo" layoutX="111.0" layoutY="157.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="2">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonThree" layoutX="203.0" layoutY="157.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="3">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonAddition" layoutX="299.0" layoutY="157.0" mnemonicParsing="false" onAction="#pressAdditionButton" prefHeight="38.0" prefWidth="75.0" text="+">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonFour" layoutX="14.0" layoutY="211.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="4">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonFive" layoutX="111.0" layoutY="211.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonSix" layoutX="203.0" layoutY="211.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="6">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonSubtraction" layoutX="299.0" layoutY="211.0" mnemonicParsing="false" onAction="#pressSubtractionButton" prefHeight="38.0" prefWidth="75.0" text="-">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonSeven" layoutX="14.0" layoutY="268.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="7">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonEight" layoutX="111.0" layoutY="268.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="8">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonNine" layoutX="203.0" layoutY="268.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="9">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonMultiplication" layoutX="299.0" layoutY="268.0" mnemonicParsing="false" onAction="#pressMultiplicationButton" prefHeight="38.0" prefWidth="75.0" text="×">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonZero" layoutX="111.0" layoutY="325.0" mnemonicParsing="false" onAction="#pressNumberButton" prefHeight="38.0" prefWidth="75.0" text="0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonAllClear" layoutX="14.0" layoutY="325.0" mnemonicParsing="false" onAction="#pressACButton" prefHeight="38.0" prefWidth="75.0" text="AC">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonDivision" layoutX="299.0" layoutY="325.0" mnemonicParsing="false" onAction="#pressDivisionButton" prefHeight="38.0" prefWidth="75.0" text="÷">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonEquals" layoutX="203.0" layoutY="325.0" mnemonicParsing="false" onAction="#pressEqualsButton" prefHeight="38.0" prefWidth="75.0" text="=">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
