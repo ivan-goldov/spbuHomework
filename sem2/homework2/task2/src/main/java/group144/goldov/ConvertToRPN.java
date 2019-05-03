@@ -20,7 +20,7 @@ public class ConvertToRPN {
                         stack.push(c);
                     }
                     catch (NullPointerException e) {
-                        System.out.println("You entered wrong expression");
+                        throw e;
                     }
                     break;
                 case '*':
@@ -41,7 +41,7 @@ public class ConvertToRPN {
                         break;
                     }
                     catch (NullPointerException e) {
-                        System.out.println("You entered wrong expression, check parenthesis");
+                        throw e;
                     }
                 default:
                     out.append(c);
