@@ -14,7 +14,7 @@ public class GenericLinkedList <T> {
         return length;
     }
 
-    /** A method that adds a new element to the end of the list if element */
+    /** A method that adds a new element to the end of the list */
     public void add(T value) throws ElementAlreadyInTheListException {
         if (isEmpty()) {
             head = new Node(value, null);
