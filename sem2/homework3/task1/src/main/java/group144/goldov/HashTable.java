@@ -86,7 +86,7 @@ public class HashTable {
     public int countConflicts() {
         int result = 0;
         for (LinkedList<String> row : hashArray) {
-            result += row.getLength() > 1 ? 1 : 0;
+            result += row.getLength() > 1 ? row.getLength() : 0;
         }
         return result;
     }
