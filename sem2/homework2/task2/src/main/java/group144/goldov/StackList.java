@@ -43,8 +43,8 @@ public class StackList<T> implements Stack<T> {
     }
 
     private class Node{
-        T value;
-        Node next;
+        private T value;
+        private Node next;
 
         private Node(T value, Node next) {
             this.value = value;

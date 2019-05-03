@@ -4,22 +4,23 @@ import java.util.EmptyStackException;
 
 /** The class that implements abstract stack using array **/
 public class StackArray<T> implements Stack<T> {
-    private int length;
-    private int arraySize;
+    private int length = 0;
+    private int arraySize = 1;
     private T[] array;
 
     public StackArray() {
-        arraySize = 1;
-        length = 0;
         array = (T[]) new Object[arraySize];
     }
 
     private void resize(int length, T[] array) {
-        arraySize *= 2;
+        if (length > this.length) {
+            arraySize *= 2;
+        } else {
+            arraySize = length + 5;
+        }
         T[] resizedArray = (T[]) new Object[arraySize];
-        for (int i = 0; i < length - 1; ++i)
-            resizedArray[i] = array[i];
-        array = resizedArray;
+        if (length - 1 >= 0) System.arraycopy(array, 0, resizedArray, 0, length - 1);
+        this.array = resizedArray;
     }
 
     /** A method that pops an element from the stack **/
@@ -29,6 +30,7 @@ public class StackArray<T> implements Stack<T> {
             throw new EmptyStackException();
         }
         length--;
+        resize(length, array);
         T value = array[length];
         array[length] = null;
         return value;
@@ -52,7 +54,7 @@ public class StackArray<T> implements Stack<T> {
         return length == 0;
     }
 
-    /**A method that returns value of the top element **/
+    /** A method that returns value of the top element **/
     @Override
     public T peek() {
         if (isEmpty()) {
