@@ -5,24 +5,28 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-/** The class that implemets hash table */
+/** The class that implements hash table */
 public class HashTable {
     private LinkedList<String>[] hashArray;
     private HashFunction hashFunction;
     private int size;
 
+    /** Default constructor */
     public HashTable() {
         this.hashFunction = new PolynomialHash();
-        this.size = hashFunction.getMod();
-        this.hashArray = new LinkedList[this.size];
-        for (int i = 0; i < this.size; ++i) {
-            this.hashArray[i] = new LinkedList<>();
-        }
+        this.size = 347;
+        initialize();
+    }
+    
+    /** Constructor with given hash function and size of the hash table */
+    public HashTable(HashFunction hashFunction, int size) {
+        this.hashFunction = hashFunction;
+        this.size = size;
+        initialize();
     }
 
-    public HashTable(HashFunction hashFunction) {
-        this.hashFunction = hashFunction;
-        this.size = hashFunction.getMod();
+    /** Initializing hash table */
+    private void initialize() {
         this.hashArray = new LinkedList[this.size];
         for (int i = 0; i < this.size; ++i) {
             this.hashArray[i] = new LinkedList<>();
@@ -52,15 +56,14 @@ public class HashTable {
 
     /** A method that checks if string is already in hash table */
     public boolean isInTable(String string) {
-        int hash = hashFunction.Hash(string);
-        return hashArray[hash].find(string) != -1;
+        return find(string) != -1;
     }
 
     /** A method that counts elements in the hash table */
     public int countElements() {
         int result = 0;
         for (LinkedList<String> row : hashArray) {
-            result += row.isEmpty() ? 0 : 1;
+            result += row.getLength();
         }
         return result;
     }

@@ -6,6 +6,4 @@ public interface HashFunction {
     /** A method that gets hash */
     int Hash(String string);
 
-    /** A method that returns mod of the hash function */
-    int getMod();
 }

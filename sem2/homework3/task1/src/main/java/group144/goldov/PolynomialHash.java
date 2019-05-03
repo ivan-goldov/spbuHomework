@@ -1,7 +1,5 @@
 package group144.goldov;
 
-import static java.lang.Math.pow;
-
 /** The class that implements polynomial hashing */
 public class PolynomialHash implements HashFunction {
     private int mod;
@@ -26,11 +24,4 @@ public class PolynomialHash implements HashFunction {
         }
         return hash;
     }
-
-    /** A method that returns mod */
-    @Override
-    public int getMod() {
-        return mod;
-    }
-
 }

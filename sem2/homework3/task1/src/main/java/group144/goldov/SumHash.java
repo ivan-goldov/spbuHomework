@@ -22,10 +22,4 @@ public class SumHash implements HashFunction{
         }
         return hash;
     }
-
-    /** A method that returns mod of the hash function*/
-    @Override
-    public int getMod() {
-        return 0;
-    }
 }
