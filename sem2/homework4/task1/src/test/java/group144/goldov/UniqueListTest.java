@@ -2,8 +2,6 @@ package group144.goldov;
 
 import org.junit.jupiter.api.Test;
 
-import javax.swing.text.Element;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class UniqueListTest {
@@ -15,14 +13,12 @@ class UniqueListTest {
     }
 
     @Test
-    public void addingEqualElementTest() {
-        try {
+    public void addingEqualElementTest() throws ElementAlreadyInTheListException {
             UniqueList<Integer> uniqueList = new UniqueList<>();
             uniqueList.add(23);
-            uniqueList.add(23);
-        } catch (ElementAlreadyInTheListException e) {
-            assertEquals(e.getMessage(), "You're trying to add element that's already in the list");
-        }
+            ElementAlreadyInTheListException exception =
+                    assertThrows(ElementAlreadyInTheListException.class, () -> uniqueList.add(23));
+            assertEquals("You're trying to add element that's already in the list", exception.getMessage());
     }
 
     @Test
@@ -37,17 +33,17 @@ class UniqueListTest {
 
     @Test
     public void removingInvalidElementTest() throws ElementAlreadyInTheListException {
-        try {
             UniqueList<Integer> uniqueList = new UniqueList<>();
             uniqueList.add(23);
-            uniqueList.remove(42);
-        } catch (ElementIsNotInTheListException e) {
-            assertEquals(e.getMessage(), "You're trying to remove element that's not in the list");
-        }
+            ElementIsNotInTheListException exception =
+                    assertThrows(ElementIsNotInTheListException.class, () -> uniqueList.remove(42));
+            assertEquals("You're trying to remove element that's not in the list", exception.getMessage());
     }
 
     @Test
-    public void addingValidElementWithCorrectIndex() throws IndexOutOfBoundsException, ElementAlreadyInTheListException {
+    public void addingValidElementWithCorrectIndex() throws IndexOutOfBoundsException,
+                                                                ElementAlreadyInTheListException
+    {
         UniqueList<Integer> uniqueList = new UniqueList<>();
         uniqueList.add(23);
         uniqueList.add(42, 1);
@@ -55,24 +51,22 @@ class UniqueListTest {
     }
 
     @Test
-    public void addingInvalidElementWithCorrectIndex() throws IndexOutOfBoundsException {
-        try {
+    public void addingInvalidElementWithCorrectIndex() throws IndexOutOfBoundsException,
+                                                                ElementAlreadyInTheListException
+    {
             UniqueList<Integer> uniqueList = new UniqueList<>();
             uniqueList.add(23);
-            uniqueList.add(23, 1);
-        } catch (ElementAlreadyInTheListException e) {
-            assertEquals(e.getMessage(), "You're trying to add element that's already in the list");
-        }
+            ElementAlreadyInTheListException exception =
+                    assertThrows(ElementAlreadyInTheListException.class, () -> uniqueList.add(23, 1));
+            assertEquals("You're trying to add element that's already in the list", exception.getMessage());
     }
 
     @Test
     public void addingValidElementWithIncorrectIndex() throws ElementAlreadyInTheListException {
-        try {
             UniqueList<Integer> uniqueList = new UniqueList<>();
             uniqueList.add(23);
-            uniqueList.add(23, -1);
-        } catch (IndexOutOfBoundsException e) {
-            assertEquals(e.getMessage(), "You entered invalid index");
-        }
+            IndexOutOfBoundsException exception =
+                    assertThrows(IndexOutOfBoundsException.class, () -> uniqueList.add(23, -1));
+            assertEquals("You entered invalid index", exception.getMessage());
     }
 }
