@@ -4,4 +4,4 @@ jdk:
 script:
   - cd sem2
 os:
-  osx
+  linux
