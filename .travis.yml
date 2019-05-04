@@ -1,5 +1,5 @@
 language: java
 jdk:
-  - oraclejdk-8
+  - oraclejdk8
 os:
-  linux
+  - linux
