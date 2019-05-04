@@ -1,7 +1,5 @@
 language: java
 jdk:
   - openjdk11
-script:
-  - cd sem2
 os:
   linux
