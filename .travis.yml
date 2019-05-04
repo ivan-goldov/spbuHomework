@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - oraclejdk-11
+  - oraclejdk8
 script:
   - cd sem2
 os:
