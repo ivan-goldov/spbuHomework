@@ -6,13 +6,8 @@ import java.util.Iterator;
 
 /** The class that implements AVL tree */
 public class AVLTree<T extends Comparable<T>> implements Collection<T> {
-    private mainNode root;
+    private MainNode root = new MainNode();
     private int size;
-
-    public AVLTree() {
-        root = new mainNode();
-        size = 0;
-    }
 
     /** Returns the number of elements in this collection */
     @Override
@@ -41,7 +36,7 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
     /** AVLTree iterator */
     private class AVLTreeIterator implements  Iterator<T> {
         private ArrayList<T> elements;
-        AVLTreeIterator() {
+        private AVLTreeIterator() {
             elements = new ArrayList<>();
             root.takeAll(elements);
         }
@@ -52,6 +47,7 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
             return !elements.isEmpty();
         }
 
+        @Override
         /** Returns current element */
         public T next() {
             if (!isEmpty()) {
@@ -174,7 +170,7 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
         }
         return root.printTree();
     }
-    private class mainNode {
+    private class MainNode {
         private Node node;
 
         private void add(T value) {
@@ -207,16 +203,16 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
             }
         }
 
-        private mainNode max() {
+        private MainNode max() {
             if (node.rightChild.node == null) {
                 return this;
             }
             return node.rightChild.max();
         }
 
-        private void leftRotation() {
-            mainNode temporary = node.rightChild;
-            mainNode newRightNode = new mainNode();
+        private void rotateLeft() {
+            MainNode temporary = node.rightChild;
+            MainNode newRightNode = new MainNode();
             newRightNode.node = node;
             newRightNode.node.rightChild = temporary.node.leftChild;
             temporary.node.leftChild = newRightNode;
@@ -225,9 +221,9 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
             node = temporary.node;
         }
 
-        private void rightRotation() {
-            mainNode temporary = node.leftChild;
-            mainNode newLeftNode = new mainNode();
+        private void rotateRight() {
+            MainNode temporary = node.leftChild;
+            MainNode newLeftNode = new MainNode();
             newLeftNode.node = node;
             newLeftNode.node.leftChild = temporary.node.rightChild;
             temporary.node.rightChild = newLeftNode;
@@ -240,14 +236,14 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
             node.heightUpdate();
             if (node.balanceFactor() == 2) {
                 if (node.leftChild.node != null && node.leftChild.node.balanceFactor() < 0) {
-                    node.leftChild.leftRotation();
+                    node.leftChild.rotateLeft();
                 }
-                rightRotation();
+                rotateRight();
             } else if (node.balanceFactor() == -2) {
                 if (node.rightChild.node != null && node.rightChild.node.balanceFactor() > 0) {
-                    node.rightChild.rightRotation();
+                    node.rightChild.rotateRight();
                 }
-                leftRotation();
+                rotateLeft();
             }
         }
 
@@ -263,7 +259,7 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
                 } else if (node.rightChild.node == null) {
                     node = node.leftChild.node;
                 } else {
-                    mainNode temporary = node.leftChild.max();
+                    MainNode temporary = node.leftChild.max();
                     T maxValue = temporary.node.value;
                     while (node.leftChild.find(maxValue)) {
                         node.leftChild.remove(maxValue);
@@ -306,14 +302,14 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
     private class Node {
         private T value;
         private int height;
-        private mainNode leftChild;
-        private mainNode rightChild;
+        private MainNode leftChild;
+        private MainNode rightChild;
 
         private Node(T value) {
             this.value = value;
             this.height = 1;
-            this.leftChild = new mainNode();
-            this.rightChild = new mainNode();
+            this.leftChild = new MainNode();
+            this.rightChild = new MainNode();
         }
 
         private int balanceFactor() {
