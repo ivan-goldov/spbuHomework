@@ -47,8 +47,8 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
             return !elements.isEmpty();
         }
 
-        @Override
         /** Returns current element */
+        @Override
         public T next() {
             if (!isEmpty()) {
                 return null;
