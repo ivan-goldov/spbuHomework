@@ -67,6 +67,10 @@ public class SortedSet<T> implements ListsComparator {
             root = new Node(value, root);
             return true;
         }
+        if (size == 1) {
+            root.next = new Node(value, null);
+            return true;
+        }
         while (current.next != null && ListsComparator.compareLists(current.value, value) < 0) {
             current = current.next;
         }
