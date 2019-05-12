@@ -8,14 +8,8 @@ import java.util.HashMap;
 public class Trie {
     private final int alphabetSize = 26;
     private int size;
-    private TrieNode root;
-    private ArrayList<String> serialisator;
-
-    public Trie() {
-        root = new TrieNode();
-        serialisator = new ArrayList<>();
-        size = 0;
-    }
+    private TrieNode root = new TrieNode();
+    private ArrayList<String> serialisator = new ArrayList<>();
 
     /**
      * Adds new string to the trie
@@ -111,7 +105,7 @@ public class Trie {
 
     /**
      * Counts strings that start with the prefix
-     * @param prefix
+     * @param prefix string with should start strings of trie
      * @return quantity of such strings
      */
     public int howManyStartWithPrefix(String prefix) {
