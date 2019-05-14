@@ -14,7 +14,7 @@ public class Main {
                 array[i][j] = reader.nextInt();
             }
         }
-        ConvertMatrixToString converter = new ConvertMatrixToString();
-        System.out.println("Printed array: " + converter.convert(array));
+        ConsoleSpiralWriter writer = new ConsoleSpiralWriter();
+        writer.print(array);
     }
 }
