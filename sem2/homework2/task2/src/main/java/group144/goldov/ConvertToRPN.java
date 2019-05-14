@@ -1,6 +1,6 @@
 package group144.goldov;
 
-/** The class that implements convertion to a RPN with Dijkstra's sorter machine **/
+/** The class that implements convert to a RPN with Dijkstra's sorter machine **/
 public class ConvertToRPN {
     /** A method that converts an expression to reversed polish notation **/
     public String convert(String inputString) throws NullPointerException {
@@ -11,17 +11,12 @@ public class ConvertToRPN {
             switch (c) {
                 case '+':
                 case '-':
-                    try {
-                        while (!stack.isEmpty() && (stack.peek() == '*' || stack.peek() == '/')) {
-                            out.append(' ');
-                            out.append(stack.pop());
-                        }
+                    while (!stack.isEmpty() && (stack.peek() == '*' || stack.peek() == '/')) {
                         out.append(' ');
-                        stack.push(c);
+                        out.append(stack.pop());
                     }
-                    catch (NullPointerException e) {
-                        throw e;
-                    }
+                    out.append(' ');
+                    stack.push(c);
                     break;
                 case '*':
                 case '/':
@@ -32,17 +27,12 @@ public class ConvertToRPN {
                     stack.push(c);
                     break;
                 case ')':
-                    try {
-                        while (stack.peek() != '(') {
-                            out.append(' ');
-                            out.append(stack.pop());
-                        }
-                        stack.pop();
-                        break;
+                    while (stack.peek() != '(') {
+                        out.append(' ');
+                        out.append(stack.pop());
                     }
-                    catch (NullPointerException e) {
-                        throw e;
-                    }
+                    stack.pop();
+                    break;
                 default:
                     out.append(c);
                     break;

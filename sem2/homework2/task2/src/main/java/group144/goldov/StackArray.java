@@ -5,7 +5,7 @@ import java.util.EmptyStackException;
 /** The class that implements abstract stack using array **/
 public class StackArray<T> implements Stack<T> {
     private int length = 0;
-    private int arraySize = 1;
+    private int arraySize = 10;
     private T[] array;
 
     public StackArray() {
@@ -19,11 +19,17 @@ public class StackArray<T> implements Stack<T> {
             arraySize = length + 5;
         }
         T[] resizedArray = (T[]) new Object[arraySize];
-        if (length - 1 >= 0) System.arraycopy(array, 0, resizedArray, 0, length - 1);
+        if (length - 1 >= 0) {
+            System.arraycopy(array, 0, resizedArray, 0, length - 1);
+        }
         this.array = resizedArray;
     }
 
-    /** A method that pops an element from the stack **/
+    /**
+     * A method that pops an element from the stack
+     * @return value of the top element
+     * @throws EmptyStackException if pop method called when stack is empty
+     */
     @Override
     public T pop() throws EmptyStackException {
         if (isEmpty()) {
@@ -36,25 +42,32 @@ public class StackArray<T> implements Stack<T> {
         return value;
     }
 
-    /** A method that pushes a new element to the stack **/
+    /**
+     * A method that pushes a new element to the stack
+     * @param value that added to stack
+     */
     @Override
     public void push(T value) {
         length++;
         if (length > arraySize) {
             resize(length, array);
-            array[length - 1] = value;
-        } else {
-            array[length - 1] = value;
         }
+        array[length - 1] = value;
     }
 
-    /** A method that checks if the stack is empty **/
+    /**
+     * A method that checks if the stack is empty
+     * @return true if stack is empty, false otherwise
+     */
     @Override
     public boolean isEmpty() {
         return length == 0;
     }
 
-    /** A method that returns value of the top element **/
+    /**
+     * A method that returns value of the top element
+     * @return value of the top element
+     */
     @Override
     public T peek() {
         if (isEmpty()) {

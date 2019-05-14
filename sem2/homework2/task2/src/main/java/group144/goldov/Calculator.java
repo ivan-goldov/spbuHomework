@@ -9,40 +9,36 @@ public class Calculator {
         ConvertToRPN converter = new ConvertToRPN();
         String[] expressionRpn = converter.convert(expression).split(" ");
         StackList <Integer> stack = new StackList<>();
-        try {
-            for (String s : expressionRpn) {
-                switch (s) {
-                    case "-": {
-                        int temporaryFirst = stack.pop();
-                        int temporarySecond = stack.pop();
-                        stack.push(temporarySecond - temporaryFirst);
-                        break;
-                    }
-                    case "+": {
-                        int temporary = stack.pop() + stack.pop();
-                        stack.push(temporary);
-                        break;
-                    }
-                    case "/": {
-                        int temporaryFirst = stack.pop();
-                        int temporarySecond = stack.pop();
-                        stack.push(temporarySecond / temporaryFirst);
-                        break;
-                    }
-                    case "*": {
-                        int temporary = stack.pop() * stack.pop();
-                        stack.push(temporary);
-                        break;
-                    }
-                    default:
-                        stack.push(Integer.parseInt(s));
-                        break;
+        for (String s : expressionRpn) {
+            switch (s) {
+                case "-": {
+                    int temporaryFirst = stack.pop();
+                    int temporarySecond = stack.pop();
+                    stack.push(temporarySecond - temporaryFirst);
+                    break;
                 }
+                case "+": {
+                    int temporary = stack.pop() + stack.pop();
+                    stack.push(temporary);
+                    break;
+                }
+                case "/": {
+                    int temporaryFirst = stack.pop();
+                    int temporarySecond = stack.pop();
+                    stack.push(temporarySecond / temporaryFirst);
+                    break;
+                }
+                case "*": {
+                    int temporary = stack.pop() * stack.pop();
+                    stack.push(temporary);
+                    break;
+                }
+                default:
+                    stack.push(Integer.parseInt(s));
+                    break;
             }
-        return stack.pop();
-        } catch (EmptyStackException e) {
-            throw e;
         }
+        return stack.pop();
     }
 
 }

@@ -8,32 +8,37 @@ class ConvertToRPNTest {
     private static ConvertToRPN converter = new ConvertToRPN();
 
     @Test
-    public void convertSimpleExpressionAddition() {
+    public void convertSimpleExpressionAdditionTest() {
         assertEquals("1 2 +", converter.convert("1+2"));
     }
 
     @Test
-    public void convertSimpleExpressionSubtraction() {
+    public void convertSimpleExpressionSubtractionTest() {
         assertEquals("1 2 -", converter.convert("1-2"));
     }
 
     @Test
-    public void convertSimpleExpressionMultiplication() {
+    public void convertSimpleExpressionMultiplicationTest() {
         assertEquals("1 2 *", converter.convert("1*2"));
     }
 
     @Test
-    public void convertSimpleExpressionDivision() {
+    public void convertSimpleExpressionDivisionTest() {
         assertEquals("1 2 /", converter.convert("1/2"));
     }
     @Test
-    public void convertExpressionWithParenthesis() {
+    public void convertExpressionWithParenthesisTest() {
         assertEquals("1 2 +", converter.convert("(1+2)"));
     }
 
     @Test
-    public void convertTypicalExpression() {
+    public void convertTypicalExpressionTest() {
         assertEquals("1 2 + 4 * 3 +", converter.convert("(1+2)*4+3"));
     }
 
+    @Test
+    public void incorrectExpressionTest() {
+        NullPointerException exception =
+                assertThrows(NullPointerException.class, () -> converter.convert("1--2-+-**-+)("));
+    }
 }
