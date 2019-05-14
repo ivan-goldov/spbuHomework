@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="216.0" prefWidth="500.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group144.goldov.Controller">
-    <children>
-        <Slider fx:id="slider" blockIncrement="0.01" layoutX="50.0" layoutY="72.0" max="1.0" onKeyReleased="#initialize" onKeyTyped="#initialize" onSwipeLeft="#initialize" prefHeight="36.0" prefWidth="400.0" />
-        <ProgressBar fx:id="progressBar" layoutX="50.0" layoutY="157.0" prefHeight="20.0" prefWidth="400.0" progress="0.0" />
-      <Label graphicTextGap="0.0" layoutX="159.0" layoutY="27.0" text="Slider with progress bar">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="497.0" style="-fx-background-color: lightgray;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group144.goldov.Controller">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TextField alignment="CENTER" prefHeight="76.0" prefWidth="497.0" style="-fx-background-color: lightgray;" text="Slider with the progress bar">
          <font>
-            <Font name="Times New Roman" size="19.0" />
+            <Font size="24.0" />
          </font>
-      </Label>
-    </children>
-</AnchorPane>
+      </TextField>
+      <ProgressBar fx:id="progressBar" prefHeight="35.0" prefWidth="497.0" progress="0.0" GridPane.rowIndex="1" />
+      <Slider fx:id="slider" prefHeight="27.0" prefWidth="497.0" GridPane.rowIndex="2" />
+   </children>
+</GridPane>
