@@ -18,12 +18,12 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <TextField alignment="CENTER" prefHeight="76.0" prefWidth="497.0" style="-fx-background-color: lightgray;" text="Slider with the progress bar">
+      <TextField alignment="CENTER" editable="false" prefHeight="76.0" prefWidth="497.0" style="-fx-background-color: lightgray;" text="Slider with the progress bar">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <ProgressBar fx:id="progressBar" prefHeight="35.0" prefWidth="497.0" progress="0.0" GridPane.rowIndex="1" />
-      <Slider fx:id="slider" prefHeight="27.0" prefWidth="497.0" GridPane.rowIndex="2" />
+      <ProgressBar fx:id="progressBar" prefHeight="37.0" prefWidth="497.0" progress="0.0" GridPane.rowIndex="1" />
+      <Slider fx:id="slider" GridPane.rowIndex="2" />
    </children>
 </GridPane>
