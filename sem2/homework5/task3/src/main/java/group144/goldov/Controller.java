@@ -78,7 +78,7 @@ public class Controller {
             return;
         }
         isEmpty = true;
-        if (calculator.isClear()) {
+        if (calculator.isEmpty()) {
             calculator.initialize(Calculator.OPERATIONS.PLUS, fieldAnswer.getText());
         } else {
             calculator.calculate(Calculator.OPERATIONS.PLUS, fieldAnswer.getText());
@@ -93,7 +93,7 @@ public class Controller {
             return;
         }
         isEmpty = true;
-        if (calculator.isClear()) {
+        if (calculator.isEmpty()) {
             calculator.initialize(Calculator.OPERATIONS.MINUS, fieldAnswer.getText());
         } else {
             calculator.calculate(Calculator.OPERATIONS.MINUS, fieldAnswer.getText());
@@ -108,7 +108,7 @@ public class Controller {
             return;
         }
         isEmpty = true;
-        if (calculator.isClear()) {
+        if (calculator.isEmpty()) {
             calculator.initialize(Calculator.OPERATIONS.MULTIPLICATION, fieldAnswer.getText());
         } else {
             calculator.calculate(Calculator.OPERATIONS.MULTIPLICATION, fieldAnswer.getText());
@@ -123,7 +123,7 @@ public class Controller {
             return;
         }
         isEmpty = true;
-        if (calculator.isClear()) {
+        if (calculator.isEmpty()) {
             calculator.initialize(Calculator.OPERATIONS.DIVIDE, fieldAnswer.getText());
         } else {
             calculator.calculate(Calculator.OPERATIONS.DIVIDE, fieldAnswer.getText());
@@ -143,7 +143,7 @@ public class Controller {
             return;
         }
         isEmpty = true;
-        if (calculator.isClear()) {
+        if (calculator.isEmpty()) {
             return;
         }
         calculator.calculate(Calculator.OPERATIONS.PLUS, fieldAnswer.getText());

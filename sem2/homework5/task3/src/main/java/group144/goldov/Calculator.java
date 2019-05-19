@@ -9,29 +9,40 @@ public class Calculator {
 
     private double firstPriorityValue;
 
-    private boolean isClear;
+    private boolean isEmpty;
 
     public enum OPERATIONS {PLUS, MINUS, MULTIPLICATION, DIVIDE}
 
     public Calculator() {
-        isClear = true;
+        isEmpty = true;
     }
 
-    /** Sets first priority operator */
+    /**
+     * Sets first priority operator
+     * @param operator that is set
+     */
     public void setOperator(OPERATIONS operator) {
         firstPriorityOperator = operator;
     }
 
-    /** Initializing of the calculator */
+    /**
+     * Initializing of the calculator
+     * @param newOperator sets new operator
+     * @param value current value
+     */
     public void initialize(OPERATIONS newOperator, String value) {
         firstPriorityValue = Double.valueOf(value);
         operator = OPERATIONS.PLUS;
         firstPriorityOperator = newOperator;
         buffer = 0;
-        isClear = false;
+        isEmpty = false;
     }
 
-    /** Calculation of the value */
+    /**
+     * Calculation of the value
+     * @param operator between two values
+     * @param value
+     */
     public void calculate(OPERATIONS operator, String value) {
         Double secondValue = Double.valueOf(value);
         switch (firstPriorityOperator) {
@@ -55,7 +66,9 @@ public class Calculator {
         firstPriorityOperator = operator;
     }
 
-    /** Returns current value of the calculator */
+    /** Returns current value of the calculator
+     * @return current value
+     */
     public double getValue() {
         switch (operator) {
             case PLUS:
@@ -66,16 +79,20 @@ public class Calculator {
         return 0;
     }
 
-    /** Checks if the calculator is new */
-    public boolean isClear() {
-        return isClear;
+    /**
+     * Checks if the calculator is empty
+     * @return true if it's empty calculator, false otherwise
+     */
+    public boolean isEmpty() {
+        return isEmpty;
     }
 
+    /** Sets calculator's fields' values by default */
     public void setEmpty() {
         buffer = 0;
         operator = null;
         firstPriorityOperator = null;
         firstPriorityValue = 0;
-        isClear = true;
+        isEmpty = true;
     }
 }
