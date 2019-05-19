@@ -1,5 +1,6 @@
 package group144.goldov;
 
+/** Calculator that used in the app */
 public class Calculator {
 
     /**

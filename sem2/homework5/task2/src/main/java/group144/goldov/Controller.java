@@ -8,6 +8,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 
+/** Controller of the app */
 public class Controller {
     @FXML
     private Spinner<Integer> firstValue;
@@ -38,7 +39,7 @@ public class Controller {
         firstValue.valueProperty().addListener(((observable, oldValue, newValue) -> calculate()));
         secondValue.valueProperty().addListener(((observable, oldValue, newValue) -> calculate()));
     }
-
+    
     private void calculate() {
         try {
             calculator.calculate(operation.getValue(), firstValue.getValue(), secondValue.getValue());
