@@ -38,6 +38,7 @@ public class Controller {
         answer.textProperty().setValue("0");
         firstValue.valueProperty().addListener(((observable, oldValue, newValue) -> calculate()));
         secondValue.valueProperty().addListener(((observable, oldValue, newValue) -> calculate()));
+        operation.valueProperty().addListener(observable -> calculate());
     }
 
     private void calculate() {
