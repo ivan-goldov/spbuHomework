@@ -29,6 +29,6 @@
             <Font size="41.0" />
          </font>
       </Text>
-      <TextField fx:id="answer" prefHeight="42.0" prefWidth="162.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <TextField fx:id="answer" alignment="CENTER" editable="false" prefHeight="42.0" prefWidth="162.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
    </children>
 </GridPane>
