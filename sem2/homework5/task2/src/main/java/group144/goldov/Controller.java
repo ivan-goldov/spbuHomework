@@ -21,6 +21,8 @@ public class Controller {
     @FXML
     private TextField answer;
 
+    private Calculator calculator = new Calculator();
+
     /** Initializing FXML variables */
     public void initialize() {
         ObservableList<String> list = FXCollections.observableArrayList("+", "-", "*", "/");
@@ -38,28 +40,12 @@ public class Controller {
     }
 
     private void calculate() {
-        int firstOperand = firstValue.getValue();
-        int secondOperand = secondValue.getValue();
-        String operator = operation.getValue();
-        double result = 0;
-        switch (operator) {
-            case "+":
-                result = firstOperand + secondOperand;
-                break;
-            case "-":
-                result = firstOperand - secondOperand;
-                break;
-            case "*":
-                result = firstOperand * secondOperand;
-                break;
-            case "/":
-                if (secondOperand == 0) {
-                    answer.setText("Division by zero");
-                    return;
-                } else {
-                    result = (double) firstOperand / secondOperand;
-                }
+        try {
+            calculator.calculate(operation.getValue(), firstValue.getValue(), secondValue.getValue());
+        } catch (IllegalArgumentException e) {
+            answer.setText("Division by zero");
         }
-        answer.setText(Double.toString(result));
+        answer.setText(String.valueOf(calculator.calculate(operation.getValue(),
+                firstValue.getValue(), secondValue.getValue())));
     }
 }
