@@ -78,10 +78,11 @@ public class Controller {
             return;
         }
         isEmpty = true;
+        double value = Double.valueOf(fieldAnswer.getText());
         if (calculator.isEmpty()) {
-            calculator.initialize(Calculator.OPERATIONS.PLUS, fieldAnswer.getText());
+            calculator.initialize(Calculator.OPERATIONS.PLUS, value);
         } else {
-            calculator.calculate(Calculator.OPERATIONS.PLUS, fieldAnswer.getText());
+            calculator.calculate(Calculator.OPERATIONS.PLUS, value);
         }
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
     }
@@ -93,10 +94,11 @@ public class Controller {
             return;
         }
         isEmpty = true;
+        double value = Double.valueOf(fieldAnswer.getText());
         if (calculator.isEmpty()) {
-            calculator.initialize(Calculator.OPERATIONS.MINUS, fieldAnswer.getText());
+            calculator.initialize(Calculator.OPERATIONS.MINUS, value);
         } else {
-            calculator.calculate(Calculator.OPERATIONS.MINUS, fieldAnswer.getText());
+            calculator.calculate(Calculator.OPERATIONS.MINUS, value);
         }
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
     }
@@ -108,25 +110,27 @@ public class Controller {
             return;
         }
         isEmpty = true;
+        double value = Double.valueOf(fieldAnswer.getText());
         if (calculator.isEmpty()) {
-            calculator.initialize(Calculator.OPERATIONS.MULTIPLICATION, fieldAnswer.getText());
+            calculator.initialize(Calculator.OPERATIONS.MULTIPLICATION, value);
         } else {
-            calculator.calculate(Calculator.OPERATIONS.MULTIPLICATION, fieldAnswer.getText());
+            calculator.calculate(Calculator.OPERATIONS.MULTIPLICATION, value);
         }
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
     }
 
     /** Processes the case of the pressing the division button */
-    public void pressDivisionButton() {
+    public void pressDivisionButton(javafx.event.ActionEvent event) {
         if (isEmpty) {
             calculator.setOperator(Calculator.OPERATIONS.DIVIDE);
             return;
         }
         isEmpty = true;
+        double value = Double.valueOf(fieldAnswer.getText());
         if (calculator.isEmpty()) {
-            calculator.initialize(Calculator.OPERATIONS.DIVIDE, fieldAnswer.getText());
+            calculator.initialize(Calculator.OPERATIONS.DIVIDE, value);
         } else {
-            calculator.calculate(Calculator.OPERATIONS.DIVIDE, fieldAnswer.getText());
+            calculator.calculate(Calculator.OPERATIONS.DIVIDE, value);
         }
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
     }
@@ -146,19 +150,20 @@ public class Controller {
         if (calculator.isEmpty()) {
             return;
         }
-        calculator.calculate(Calculator.OPERATIONS.PLUS, fieldAnswer.getText());
+        int value = Integer.valueOf(fieldAnswer.getText());
+        calculator.calculate(Calculator.OPERATIONS.PLUS, value);
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
-        calculator.initialize(Calculator.OPERATIONS.PLUS, String.valueOf(calculator.getValue()));
+        calculator.initialize(Calculator.OPERATIONS.PLUS, calculator.getValue());
     }
 
     /** Processes the case of the pressing a button with number */
-    public void pressNumberButton(javafx.event.ActionEvent actionEvent) {
+    public void pressNumberButton(javafx.event.ActionEvent event) {
         if (isEmpty) {
             fieldAnswer.textProperty().setValue("");
             isEmpty = false;
         }
         for (int i = 0; i < 10; i++) {
-            if (actionEvent.getSource().equals(buttons[i])) {
+            if (event.getSource().equals(buttons[i])) {
                 String temporary = "";
                 if (!fieldAnswer.getText().equals("")) {
                     temporary = fieldAnswer.getText();

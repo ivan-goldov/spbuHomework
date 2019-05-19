@@ -30,8 +30,8 @@ public class Calculator {
      * @param newOperator sets new operator
      * @param value current value
      */
-    public void initialize(OPERATIONS newOperator, String value) {
-        firstPriorityValue = Double.valueOf(value);
+    public void initialize(OPERATIONS newOperator, double value) {
+        firstPriorityValue = value;
         operator = OPERATIONS.PLUS;
         firstPriorityOperator = newOperator;
         buffer = 0;
@@ -43,8 +43,7 @@ public class Calculator {
      * @param operator between two values
      * @param value
      */
-    public void calculate(OPERATIONS operator, String value) {
-        Double secondValue = Double.valueOf(value);
+    public void calculate(OPERATIONS operator, double value) {
         switch (firstPriorityOperator) {
             case PLUS:
             case MINUS:
@@ -53,14 +52,14 @@ public class Calculator {
                 } else {
                     buffer -= firstPriorityValue;
                 }
-                firstPriorityValue = secondValue;
+                firstPriorityValue = value;
                 this.operator = firstPriorityOperator;
                 break;
             case DIVIDE:
-                firstPriorityValue /= secondValue;
+                firstPriorityValue /= value;
                 break;
             case MULTIPLICATION:
-                firstPriorityValue *= secondValue;
+                firstPriorityValue *= value;
                 break;
         }
         firstPriorityOperator = operator;
