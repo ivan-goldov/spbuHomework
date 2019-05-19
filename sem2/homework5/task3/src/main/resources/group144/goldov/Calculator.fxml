@@ -43,7 +43,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="buttonAddition" mnemonicParsing="false" onAction="#pressAdditionButton" prefHeight="38.0" prefWidth="75.0" text="+" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="buttonAddition" mnemonicParsing="false" onAction="#pressOperationButton" prefHeight="38.0" prefWidth="75.0" text="+" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>
@@ -63,7 +63,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="buttonSubtraction" mnemonicParsing="false" onAction="#pressSubtractionButton" prefHeight="38.0" prefWidth="75.0" text="-" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button fx:id="buttonSubtraction" mnemonicParsing="false" onAction="#pressOperationButton" prefHeight="38.0" prefWidth="75.0" text="-" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>
@@ -83,7 +83,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="buttonMultiplication" mnemonicParsing="false" onAction="#pressMultiplicationButton" prefHeight="38.0" prefWidth="75.0" text="×" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button fx:id="buttonMultiplication" mnemonicParsing="false" onAction="#pressOperationButton" prefHeight="38.0" prefWidth="75.0" text="×" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>
@@ -98,7 +98,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="buttonDivision" mnemonicParsing="false" onAction="#pressDivisionButton" prefHeight="38.0" prefWidth="75.0" text="÷" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <Button fx:id="buttonDivision" mnemonicParsing="false" onAction="#pressOperationButton" prefHeight="38.0" prefWidth="75.0" text="÷" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>

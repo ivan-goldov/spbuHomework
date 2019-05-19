@@ -71,66 +71,26 @@ public class Controller {
         isEmpty = true;
     }
 
-    /** Processes the case of the pressing the addition button */
-    public void pressAdditionButton() {
+    /** Processes the case of the pressing operation button */
+    public void pressOperationButton(javafx.event.ActionEvent actionEvent) {
+       Calculator.OPERATIONS operation = Calculator.OPERATIONS.PLUS;
+       if (actionEvent.getSource().equals(buttonSubtraction)) {
+            operation = Calculator.OPERATIONS.MINUS;
+        } else if (actionEvent.getSource().equals(buttonMultiplication)) {
+            operation = Calculator.OPERATIONS.MULTIPLICATION;
+        } else if (actionEvent.getSource().equals(buttonDivision)){
+            operation = Calculator.OPERATIONS.DIVIDE;
+        }
         if (isEmpty) {
-            calculator.setOperator(Calculator.OPERATIONS.PLUS);
+            calculator.setOperator(operation);
             return;
         }
         isEmpty = true;
         double value = Double.valueOf(fieldAnswer.getText());
         if (calculator.isEmpty()) {
-            calculator.initialize(Calculator.OPERATIONS.PLUS, value);
+            calculator.initialize(operation, value);
         } else {
-            calculator.calculate(Calculator.OPERATIONS.PLUS, value);
-        }
-        fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
-    }
-
-    /** Processes the case of the pressing the subtraction button */
-    public void pressSubtractionButton() {
-        if (isEmpty) {
-            calculator.setOperator(Calculator.OPERATIONS.MINUS);
-            return;
-        }
-        isEmpty = true;
-        double value = Double.valueOf(fieldAnswer.getText());
-        if (calculator.isEmpty()) {
-            calculator.initialize(Calculator.OPERATIONS.MINUS, value);
-        } else {
-            calculator.calculate(Calculator.OPERATIONS.MINUS, value);
-        }
-        fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
-    }
-
-    /** Processes the case of the pressing the multiplication button */
-    public void pressMultiplicationButton() {
-        if (isEmpty) {
-            calculator.setOperator(Calculator.OPERATIONS.MULTIPLICATION);
-            return;
-        }
-        isEmpty = true;
-        double value = Double.valueOf(fieldAnswer.getText());
-        if (calculator.isEmpty()) {
-            calculator.initialize(Calculator.OPERATIONS.MULTIPLICATION, value);
-        } else {
-            calculator.calculate(Calculator.OPERATIONS.MULTIPLICATION, value);
-        }
-        fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
-    }
-
-    /** Processes the case of the pressing the division button */
-    public void pressDivisionButton(javafx.event.ActionEvent event) {
-        if (isEmpty) {
-            calculator.setOperator(Calculator.OPERATIONS.DIVIDE);
-            return;
-        }
-        isEmpty = true;
-        double value = Double.valueOf(fieldAnswer.getText());
-        if (calculator.isEmpty()) {
-            calculator.initialize(Calculator.OPERATIONS.DIVIDE, value);
-        } else {
-            calculator.calculate(Calculator.OPERATIONS.DIVIDE, value);
+            calculator.calculate(operation, value);
         }
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
     }
