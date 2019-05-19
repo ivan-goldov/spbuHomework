@@ -6,7 +6,7 @@ import javafx.scene.control.Slider;
 
 public class Controller {
     @FXML
-    private Slider slider = new Slider(0, 1, 0.05);
+    private Slider slider = new Slider();
 
     @FXML
     private ProgressBar progressBar;
