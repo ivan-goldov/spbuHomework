@@ -3,54 +3,53 @@ package group144.goldov;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import java.awt.event.ActionEvent;
 
 public class Controller {
-
-    @FXML
-    private Button buttonTwo;
-
-    @FXML
-    private Button buttonSix;
-
-    @FXML
-    private Button buttonFive;
-
-    @FXML
-    private Button buttonFour;
-
-    @FXML
-    private Button buttonThree;
-
-    @FXML
-    private Button buttonMultiplication;
-
-    @FXML
-    private Button buttonSubtraction;
-
-    @FXML
-    private Button buttonEquals;
 
     @FXML
     private Button buttonZero;
 
     @FXML
-    private Button buttonAddition;
+    private Button buttonOne;
 
     @FXML
-    private Button buttonNine;
+    private Button buttonTwo;
 
     @FXML
-    private Button buttonEight;
+    private Button buttonThree;
+
+    @FXML
+    private Button buttonFour;
+
+    @FXML
+    private Button buttonFive;
+
+    @FXML
+    private Button buttonSix;
 
     @FXML
     private Button buttonSeven;
 
     @FXML
+    private Button buttonEight;
+
+    @FXML
+    private Button buttonNine;
+
+    @FXML
+    private Button buttonAddition;
+
+    @FXML
+    private Button buttonSubtraction;
+
+    @FXML
+    private Button buttonMultiplication;
+
+    @FXML
     private Button buttonDivision;
 
     @FXML
-    private Button buttonOne;
+    private Button buttonEquals;
 
     @FXML
     private Button buttonAllClear;
@@ -75,14 +74,14 @@ public class Controller {
     /** Processes the case of the pressing the addition button */
     public void pressAdditionButton() {
         if (isEmpty) {
-            calculator.setOperator("+");
+            calculator.setOperator(Calculator.OPERATIONS.PLUS);
             return;
         }
         isEmpty = true;
         if (calculator.isClear()) {
-            calculator.initialize("+", fieldAnswer.getText());
+            calculator.initialize(Calculator.OPERATIONS.PLUS, fieldAnswer.getText());
         } else {
-            calculator.calculate("+", fieldAnswer.getText());
+            calculator.calculate(Calculator.OPERATIONS.PLUS, fieldAnswer.getText());
         }
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
     }
@@ -90,14 +89,14 @@ public class Controller {
     /** Processes the case of the pressing the subtraction button */
     public void pressSubtractionButton() {
         if (isEmpty) {
-            calculator.setOperator("-");
+            calculator.setOperator(Calculator.OPERATIONS.MINUS);
             return;
         }
         isEmpty = true;
         if (calculator.isClear()) {
-            calculator.initialize("-", fieldAnswer.getText());
+            calculator.initialize(Calculator.OPERATIONS.MINUS, fieldAnswer.getText());
         } else {
-            calculator.calculate("-", fieldAnswer.getText());
+            calculator.calculate(Calculator.OPERATIONS.MINUS, fieldAnswer.getText());
         }
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
     }
@@ -105,14 +104,14 @@ public class Controller {
     /** Processes the case of the pressing the multiplication button */
     public void pressMultiplicationButton() {
         if (isEmpty) {
-            calculator.setOperator("*");
+            calculator.setOperator(Calculator.OPERATIONS.MULTIPLICATION);
             return;
         }
         isEmpty = true;
         if (calculator.isClear()) {
-            calculator.initialize("*", fieldAnswer.getText());
+            calculator.initialize(Calculator.OPERATIONS.MULTIPLICATION, fieldAnswer.getText());
         } else {
-            calculator.calculate("*", fieldAnswer.getText());
+            calculator.calculate(Calculator.OPERATIONS.MULTIPLICATION, fieldAnswer.getText());
         }
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
     }
@@ -120,14 +119,14 @@ public class Controller {
     /** Processes the case of the pressing the division button */
     public void pressDivisionButton() {
         if (isEmpty) {
-            calculator.setOperator("/");
+            calculator.setOperator(Calculator.OPERATIONS.DIVIDE);
             return;
         }
         isEmpty = true;
         if (calculator.isClear()) {
-            calculator.initialize("/", fieldAnswer.getText());
+            calculator.initialize(Calculator.OPERATIONS.DIVIDE, fieldAnswer.getText());
         } else {
-            calculator.calculate("/", fieldAnswer.getText());
+            calculator.calculate(Calculator.OPERATIONS.DIVIDE, fieldAnswer.getText());
         }
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
     }
@@ -135,7 +134,7 @@ public class Controller {
     /** Processes the case of the AC button */
     public void pressACButton() {
         fieldAnswer.textProperty().setValue("0");
-        calculator = new Calculator();
+        calculator.setEmpty();
     }
 
     /** Processes the case of the pressing equals button */
@@ -147,9 +146,9 @@ public class Controller {
         if (calculator.isClear()) {
             return;
         }
-        calculator.calculate("+", fieldAnswer.getText());
+        calculator.calculate(Calculator.OPERATIONS.PLUS, fieldAnswer.getText());
         fieldAnswer.textProperty().setValue(String.valueOf(calculator.getValue()));
-        calculator = new Calculator();
+        calculator.initialize(Calculator.OPERATIONS.PLUS, String.valueOf(calculator.getValue()));
     }
 
     /** Processes the case of the pressing a button with number */
