@@ -3,6 +3,9 @@ package group144.goldov;
 /** Calculator that used in the app */
 public class Calculator {
 
+    /** Enum that represents operations */
+    public enum OPERATIONS {PLUS, MINUS, MULTIPLICATION, DIVISION}
+
     /**
      * Calculates value
      * @param operator addition, subtraction, multiplication or division
@@ -10,21 +13,21 @@ public class Calculator {
      * @param secondOperand second value
      * @return calculated value
      */
-    public double calculate(String operator, int firstOperand, int secondOperand) {
+    public double calculate(OPERATIONS operator, int firstOperand, int secondOperand) {
         double result = 0;
         switch (operator) {
-            case "+":
+            case PLUS:
                 result = firstOperand + secondOperand;
                 break;
-            case "-":
+            case MINUS:
                 result = firstOperand - secondOperand;
                 break;
-            case "*":
+            case MULTIPLICATION:
                 result = firstOperand * secondOperand;
                 break;
-            case "/":
+            case DIVISION:
                 if (secondOperand == 0) {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Division by zero");
                 } else {
                     result = (double) firstOperand / secondOperand;
                 }

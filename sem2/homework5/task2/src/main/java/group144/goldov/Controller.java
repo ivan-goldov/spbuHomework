@@ -39,14 +39,27 @@ public class Controller {
         firstValue.valueProperty().addListener(((observable, oldValue, newValue) -> calculate()));
         secondValue.valueProperty().addListener(((observable, oldValue, newValue) -> calculate()));
     }
-    
+
     private void calculate() {
-        try {
-            calculator.calculate(operation.getValue(), firstValue.getValue(), secondValue.getValue());
-        } catch (IllegalArgumentException e) {
-            answer.setText("Division by zero");
+        Calculator.OPERATIONS operator = Calculator.OPERATIONS.PLUS;
+        switch (operation.getValue()) {
+            case "+":
+                break;
+            case "-":
+                operator = Calculator.OPERATIONS.MINUS;
+                break;
+            case "*":
+                operator = Calculator.OPERATIONS.MULTIPLICATION;
+                break;
+            case "/":
+                operator = Calculator.OPERATIONS.DIVISION;
+                break;
         }
-        answer.setText(String.valueOf(calculator.calculate(operation.getValue(),
-                firstValue.getValue(), secondValue.getValue())));
+        try {
+            calculator.calculate(operator, firstValue.getValue(), secondValue.getValue());
+        } catch (IllegalArgumentException e) {
+            answer.setText(e.getMessage());
+        }
+        answer.setText(String.valueOf(calculator.calculate(operator, firstValue.getValue(), secondValue.getValue())));
     }
 }
