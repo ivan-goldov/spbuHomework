@@ -17,7 +17,6 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
         primaryStage.setTitle("Simple calculator");
         primaryStage.show();
     }
