@@ -18,7 +18,8 @@ public class Main extends Application {
         stage.setTitle("Slider");
         stage.setScene(new Scene(root, 500, 250));
         stage.centerOnScreen();
-        stage.setResizable(true);
+        stage.setMinWidth(500);
+        stage.setMinHeight(250);
         stage.show();
     }
 }

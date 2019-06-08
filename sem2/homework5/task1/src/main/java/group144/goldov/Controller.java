@@ -13,6 +13,8 @@ public class Controller {
 
     /** A method that changes progress bar according to slider's changes */
     public void initialize() {
+        slider.setMin(0);
+        slider.setMax(1);
         slider.valueProperty().addListener((observable, oldValue, newValue) -> progressBar.progressProperty().setValue(newValue));
     }
 }

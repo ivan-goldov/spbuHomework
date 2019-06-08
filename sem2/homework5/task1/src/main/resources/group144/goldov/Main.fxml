@@ -23,7 +23,7 @@
             <Font size="24.0" />
          </font>
       </TextField>
-      <ProgressBar fx:id="progressBar" prefHeight="37.0" prefWidth="497.0" progress="0.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES" />
-      <Slider fx:id="slider" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+      <Slider fx:id="slider" minHeight="-Infinity" minWidth="-Infinity" prefHeight="15.5" prefWidth="497.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <ProgressBar fx:id="progressBar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="496.0" progress="0.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
    </children>
 </GridPane>
