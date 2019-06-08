@@ -289,13 +289,14 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
             return result.toString();
         }
 
-        public void takeAll(ArrayList<T> list) {
-            if (node == null) {
-                return;
+        private void takeAll(ArrayList<T> list) {
+            if (node.leftChild != null) {
+                node.leftChild.takeAll(list);
             }
-            node.leftChild.takeAll(list);
-            list.add(node.value);
-            node.rightChild.takeAll(list);
+                list.add(node.value);
+            if (node.rightChild != null) {
+                node.rightChild.takeAll(list);
+            }
         }
     }
 
