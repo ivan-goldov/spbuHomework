@@ -3,13 +3,13 @@ package group144.goldov;
 public class TicTacToeField {
     private final int size = 3;
 
-    enum StateOfGame {PLAYING, XWON, OWON, DRAW};
+    enum StateOfGame {PLAYING, XWON, OWON, DRAW}
 
-    private enum Players {PLAYER1, PLAYER2};
+    private enum Players {PLAYER1, PLAYER2}
 
     private Players currentPlayer;
 
-    private enum StateOfButton {O, X, EMPTY};
+    private enum StateOfButton {O, X, EMPTY}
 
     private StateOfButton[][] states = new StateOfButton[size][size];
 

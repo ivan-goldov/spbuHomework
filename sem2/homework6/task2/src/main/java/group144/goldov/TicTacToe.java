@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 public class TicTacToe {
     private int size;
@@ -20,7 +20,7 @@ public class TicTacToe {
     private Button[][] buttons;
 
     @FXML
-    private AnchorPane scene;
+    private GridPane scene;
 
     @FXML
     private void newGame() {

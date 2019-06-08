@@ -15,15 +15,12 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        try {
+    public void start(Stage primaryStage) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("TicTacToe.fxml"));
             primaryStage.setTitle("Tic Tac Toe");
             primaryStage.setScene(new Scene(root));
-            primaryStage.setResizable(false);
+            primaryStage.setMinHeight(500);
+            primaryStage.setMinWidth(450);
             primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
