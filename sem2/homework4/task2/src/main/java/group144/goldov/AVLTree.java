@@ -290,6 +290,9 @@ public class AVLTree<T extends Comparable<T>> implements Collection<T> {
         }
 
         private void takeAll(ArrayList<T> list) {
+            if (node == null) {
+                return;
+            }
             if (node.leftChild != null) {
                 node.leftChild.takeAll(list);
             }
