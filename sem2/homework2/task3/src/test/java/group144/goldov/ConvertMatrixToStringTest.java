@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ConvertMatrixToStringTest {
     @Test
     public void convertArrayOfOneElement() throws IOException {
-        FileSpiralWriter fileWriter= new FileSpiralWriter("test1Actual.txt");
+        FileSpiralWriter fileWriter = new FileSpiralWriter("test1Actual.txt");
         int[][] a = {{1}};
         fileWriter.print(a);
         BufferedReader readerActual = new BufferedReader(new FileReader("test1Actual.txt"));
@@ -22,7 +22,7 @@ class ConvertMatrixToStringTest {
 
     @Test
     public void convertArrayWithEvenSize() throws IOException {
-        FileSpiralWriter fileWriter= new FileSpiralWriter("test2Actual.txt");
+        FileSpiralWriter fileWriter = new FileSpiralWriter("test2Actual.txt");
         int[][] a = {{1, 2}, {3, 4}};
         fileWriter.print(a);
         BufferedReader readerActual = new BufferedReader(new FileReader("test1Actual.txt"));
@@ -33,7 +33,7 @@ class ConvertMatrixToStringTest {
 
     @Test
     public void convertArrayOfNineElements() throws IOException {
-        FileSpiralWriter fileWriter= new FileSpiralWriter("test3Actual.txt");
+        FileSpiralWriter fileWriter = new FileSpiralWriter("test3Actual.txt");
         int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         fileWriter.print(a);
         BufferedReader readerActual = new BufferedReader(new FileReader("test3Actual.txt"));
@@ -43,7 +43,7 @@ class ConvertMatrixToStringTest {
 
     @Test
     public void convertArrayOfTwentyFiveElements() throws IOException {
-        FileSpiralWriter fileWriter= new FileSpiralWriter("test4Actual.txt");
+        FileSpiralWriter fileWriter = new FileSpiralWriter("test4Actual.txt");
         int[][] a = new int[5][5];
         int k = 1;
         for (int i = 0; i < 5; ++i) {

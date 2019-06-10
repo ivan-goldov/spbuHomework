@@ -4,6 +4,9 @@ import java.io.IOException;
 
 /** The interface that outputs converted matrix either to file or to console */
 public interface SpiralWriter {
-    /** A method that prints array */
+    /** Prints the array */
     void print(int[][] array) throws IOException;
+
+    /** Prints the element of the array */
+    void printElement(String element) throws IOException;
 }
