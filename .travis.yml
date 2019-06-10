@@ -1,7 +1,0 @@
-language: java
-jdk:
-  - oraclejdk8
-env:
-  - sem2/homework5/task2
-script:
-  - cd $sem2/homework5/task2 && ./gradlew check
