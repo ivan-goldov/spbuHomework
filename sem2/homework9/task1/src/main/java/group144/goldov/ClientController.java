@@ -35,6 +35,7 @@ public class ClientController {
 
     private Socket client;
 
+    /** Initializes controller */
     public void initialize() {
         clientController = new Controller(scene, Controller.USER.CLIENT, gameProgress);
         Alert message = new Alert(Alert.AlertType.INFORMATION);

@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/** Class implements client app for tic tac toe game */
 public class ClientApp extends Application {
     private ClientController clientController;
 
@@ -15,6 +16,7 @@ public class ClientApp extends Application {
         launch(args);
     }
 
+    /** Starts client app */
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml")).load();
@@ -27,6 +29,7 @@ public class ClientApp extends Application {
 
     }
 
+    /** Stops client app */
     @Override
     public void stop() {
         if (clientController.isGameGoing()) {

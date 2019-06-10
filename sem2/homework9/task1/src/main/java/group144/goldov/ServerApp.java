@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/** Class implements server app for tic tac toe game */
 public class ServerApp extends Application {
     private ServerController serverController;
 
