@@ -12,21 +12,7 @@ public class LazyFactory {
      * @return calculated value or calculates value and returns it if it isn't calculated yet
      */
     public static <T> Lazy<T> createOneThreadLazy(Supplier<T> supplier) {
-        return new Lazy<T>() {
-            private Supplier function = null;
-            private T value = null;
-
-            @Override
-            public T get() {
-                if (function != null) {
-                    return value;
-                } else {
-                    value = supplier.get();
-                    function = supplier;
-                    return value;
-                }
-            }
-        };
+        return new LazyOneThread<T>(supplier);
     }
 
     /**
@@ -36,25 +22,7 @@ public class LazyFactory {
      * @return calculated value or calculates value and returns it if it isn't calculated yet
      */
     public static <T> Lazy<T> createMultiThreadLazy(Supplier<T> supplier) {
-        return new Lazy<T>() {
-            private Supplier function = null;
-            private T value = null;
-
-            @Override
-            public T get() {
-                if (function != null) {
-                    return value;
-                } else {
-                    synchronized (this) {
-                        if (function == null) {
-                            value = supplier.get();
-                            function = supplier;
-                        }
-                    }
-                    return value;
-                }
-            }
-        };
+        return new LazyMultiThread<T>(supplier);
     }
 
 }
