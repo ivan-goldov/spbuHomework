@@ -7,8 +7,7 @@ import java.util.Scanner;
 public class OperandNode implements Node {
     private int value;
 
-    OperandNode(Scanner scanner) {
-        String input = scanner.next();
+    OperandNode(String input) {
         if (input.charAt(input.length() - 1) == ')') {
             value = Integer.parseInt(input.substring(0, input.indexOf(')')));
         } else {

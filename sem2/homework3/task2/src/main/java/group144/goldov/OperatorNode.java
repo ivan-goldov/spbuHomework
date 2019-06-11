@@ -10,19 +10,30 @@ public class OperatorNode implements Node{
     private Node rightChild;
     private char operator;
 
-    public OperatorNode(Scanner scanner) {
-        String input = scanner.next();
-        operator = input.charAt(input.length() - 1);
-        if (scanner.hasNextInt()) {
-            leftChild = new OperandNode(scanner);
-        } else {
-            leftChild = new OperatorNode(scanner);
-        }
-        if (scanner.hasNext(Pattern.compile("[-]?[0-9]+([)]+)?"))) {
-            rightChild = new OperandNode(scanner);
-        } else {
-            rightChild = new OperatorNode(scanner);
-        }
+    public OperatorNode(char operator) {
+        this.operator = operator;
+    }
+
+    public OperatorNode(Node leftChild, Node rightChild, char operator) {
+        this.operator = operator;
+        this.leftChild = leftChild;
+        this.rightChild = rightChild;
+    }
+
+    public void setLeftChild(Node leftChild) {
+        this.leftChild = leftChild;
+    }
+
+    public void setRightChild(Node rightChild) {
+        this.rightChild = rightChild;
+    }
+
+    public Node getLeftChild() {
+        return leftChild;
+    }
+
+    public Node getRightChild() {
+        return rightChild;
     }
 
     /** A method that calculates value in the node */
