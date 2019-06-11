@@ -2,6 +2,7 @@ package group144.goldov;
 
 import java.util.function.Supplier;
 
+/** Utility class to simplify work with supplier function */
 public class ModifiedSupplier<T> {
     private Supplier<T> function;
     private boolean isCalculated;

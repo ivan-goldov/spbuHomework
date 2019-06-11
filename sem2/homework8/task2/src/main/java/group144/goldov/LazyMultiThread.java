@@ -2,6 +2,7 @@ package group144.goldov;
 
 import java.util.function.Supplier;
 
+/** Class implements synchronized lazy object */
 public class LazyMultiThread<T> implements Lazy<T> {
     private ModifiedSupplier<T> supplier;
     private T value;
