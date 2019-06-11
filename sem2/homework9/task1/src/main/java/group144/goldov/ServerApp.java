@@ -19,10 +19,11 @@ public class ServerApp extends Application {
         Parent root = loader.load();
         serverController = loader.getController();
         primaryStage.setTitle("Tic Tac Toe Server");
-        primaryStage.setScene(new Scene(root, 600, 600));
-        primaryStage.setMinHeight(350);
-        primaryStage.setMinWidth(350);
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setMinHeight(500);
+        primaryStage.setMinWidth(450);
         primaryStage.show();
+        System.out.println(serverController.getPort());
     }
 
     /** Stops server app */

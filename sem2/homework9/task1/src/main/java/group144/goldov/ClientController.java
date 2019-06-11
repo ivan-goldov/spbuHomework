@@ -13,7 +13,7 @@ import java.net.Socket;
 
 /** Client controller for the two-players Tic Tac Toe game */
 public class ClientController {
-    private static final int port = 11111;
+    private int port;
 
     @FXML
     private GridPane scene;
@@ -79,5 +79,10 @@ public class ClientController {
     /** Closes the client */
     public void closeConnection() {
         clientController.closeConnection();
+    }
+
+    /** Sets port */
+    public void setPort(int port) {
+        this.port = port;
     }
 }

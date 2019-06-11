@@ -80,4 +80,9 @@ public class ServerController {
     public void closeConnection() {
         serverController.closeConnection();
     }
+
+    /** Returns port */
+    public int getPort() {
+        return port;
+    }
 }
