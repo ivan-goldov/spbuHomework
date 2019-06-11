@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class QuickSortTest {
-    private QuickSort quickSort = new QuickSort();
-
+    private QuickSorter quickSort = new SimpleQuickSort();
     @Test
     public void sortingArrayOfOneElementTest() {
         int[] array = {1};
