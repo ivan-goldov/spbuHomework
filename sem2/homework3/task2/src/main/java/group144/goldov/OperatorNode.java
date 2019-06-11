@@ -20,18 +20,22 @@ public class OperatorNode implements Node{
         this.rightChild = rightChild;
     }
 
+    /** Sets left child of the node */
     public void setLeftChild(Node leftChild) {
         this.leftChild = leftChild;
     }
 
+    /** Sets right child of the node */
     public void setRightChild(Node rightChild) {
         this.rightChild = rightChild;
     }
 
+    /** Returns left child of the node */
     public Node getLeftChild() {
         return leftChild;
     }
 
+    /** Returns right child of the node */
     public Node getRightChild() {
         return rightChild;
     }
