@@ -1,15 +1,16 @@
 package group144.goldov;
 
 import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
 /** The class that outputs converted matrix to the file */
 public class FileSpiralWriter implements SpiralWriter {
-    private BufferedWriter writer;
+    private FileOutputStream file;
 
     public FileSpiralWriter(String fileName) throws IOException {
-        writer = new BufferedWriter(new FileWriter(fileName));
+         file = new FileOutputStream(fileName, true);
     }
     /** Prints the array */
     @Override
@@ -20,7 +21,7 @@ public class FileSpiralWriter implements SpiralWriter {
     /** Prints the element of the array */
     @Override
     public void printElement(String element) throws IOException {
-        writer.write(element);
+        file.write(element.getBytes());
     }
 }
 

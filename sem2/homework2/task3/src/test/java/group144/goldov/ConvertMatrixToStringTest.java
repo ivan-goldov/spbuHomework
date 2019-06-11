@@ -2,10 +2,7 @@ package group144.goldov;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,8 +12,8 @@ class ConvertMatrixToStringTest {
         FileSpiralWriter fileWriter = new FileSpiralWriter("test1Actual.txt");
         int[][] a = {{1}};
         fileWriter.print(a);
-        BufferedReader readerActual = new BufferedReader(new FileReader("test1Actual.txt"));
         BufferedReader readerExpected = new BufferedReader(new FileReader("test1Expected.txt"));
+        BufferedReader readerActual = new BufferedReader(new FileReader("test1Actual.txt"));
         assertEquals(readerExpected.readLine(), readerActual.readLine());
     }
 
@@ -25,8 +22,8 @@ class ConvertMatrixToStringTest {
         FileSpiralWriter fileWriter = new FileSpiralWriter("test2Actual.txt");
         int[][] a = {{1, 2}, {3, 4}};
         fileWriter.print(a);
-        BufferedReader readerActual = new BufferedReader(new FileReader("test1Actual.txt"));
-        BufferedReader readerExpected = new BufferedReader(new FileReader("test1Expected.txt"));
+        BufferedReader readerActual = new BufferedReader(new FileReader("test2Actual.txt"));
+        BufferedReader readerExpected = new BufferedReader(new FileReader("test2Expected.txt"));
         assertEquals(readerExpected.readLine(), readerActual.readLine());
 
     }
