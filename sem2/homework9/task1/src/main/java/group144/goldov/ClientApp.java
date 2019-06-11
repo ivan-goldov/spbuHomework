@@ -19,7 +19,7 @@ public class ClientApp extends Application {
     /** Starts client app */
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml")).load();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
         Parent root = loader.load();
         clientController = loader.getController();
         primaryStage.setScene(new Scene(root));
