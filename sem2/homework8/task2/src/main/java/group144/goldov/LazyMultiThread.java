@@ -8,7 +8,7 @@ public class LazyMultiThread<T> implements Lazy<T> {
     private T value;
 
     public LazyMultiThread(Supplier<T> supplier) {
-        this.supplier = new ModifiedSupplier<T>(supplier);
+        this.supplier = new ModifiedSupplier(supplier);
     }
 
     /**
@@ -21,7 +21,9 @@ public class LazyMultiThread<T> implements Lazy<T> {
             return value;
         } else {
             synchronized (this) {
-                value = supplier.getFunctionFirstTime().get();
+                if (!supplier.isCalculated()) {
+                    value = supplier.getFunctionFirstTime().get();
+                }
             }
             return value;
         }

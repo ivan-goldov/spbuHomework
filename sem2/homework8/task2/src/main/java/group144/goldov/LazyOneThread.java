@@ -4,11 +4,11 @@ import java.util.function.Supplier;
 
 /** Class implements non-synchronized lazy object */
 public class LazyOneThread<T> implements Lazy<T> {
-    private ModifiedSupplier<T> supplier;
+    private ModifiedSupplier <T> supplier;
     private T value = null;
 
     public LazyOneThread(Supplier<T> supplier) {
-        this.supplier = new ModifiedSupplier<T>(supplier);
+        this.supplier = new ModifiedSupplier(supplier);
     }
 
     /**
