@@ -12,6 +12,10 @@ import java.io.IOException;
 public class ServerApp extends Application {
     private ServerController serverController;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     /** Starts server app */
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -41,7 +45,4 @@ public class ServerApp extends Application {
         }
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

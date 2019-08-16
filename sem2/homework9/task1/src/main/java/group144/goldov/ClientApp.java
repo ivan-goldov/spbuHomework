@@ -27,6 +27,7 @@ public class ClientApp extends Application {
         Parent root = loader.load();
         clientController = loader.getController();
         clientController.setPort(port);
+        primaryStage.setTitle("Tic tac toe player");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMinHeight(500);
         primaryStage.setMinWidth(450);

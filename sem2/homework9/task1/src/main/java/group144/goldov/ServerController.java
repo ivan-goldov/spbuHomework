@@ -14,7 +14,7 @@ import java.net.Socket;
 
 /** Class that implements server controller */
 public class ServerController {
-    private static final int port = 11111;
+    private static final int port = 4999;
 
     @FXML
     private GridPane scene;

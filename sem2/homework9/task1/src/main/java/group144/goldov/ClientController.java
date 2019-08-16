@@ -13,7 +13,7 @@ import java.net.Socket;
 
 /** Client controller for the two-players Tic Tac Toe game */
 public class ClientController {
-    private int port;
+    private int port = 4999;
 
     @FXML
     private GridPane scene;

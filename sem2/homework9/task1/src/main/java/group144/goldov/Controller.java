@@ -89,13 +89,15 @@ public class Controller {
                         current.textProperty().setValue(field.whichPlayer());
                         printStream.write(10 * (i + 1) + (j + 1));
                         printStream.flush();
-                        if (user == USER.CLIENT) {
-                            gameProgress.setText("Wait your turn");
+                        if (user.equals(USER.CLIENT)) {
+                            gameProgress.setText("Your turn");
                             if (field.isGameOver() == TicTacToeField.StateOfGame.PLAYING) {
                                 waitTurn();
                             }
                         } else {
-                            waitTurn();
+                            if (field.isGameOver() == TicTacToeField.StateOfGame.PLAYING) {
+                                waitTurn();
+                            }
                             gameProgress.setText("Wait your turn");
                         }
                     }
