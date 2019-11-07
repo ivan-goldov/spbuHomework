@@ -43,9 +43,6 @@ public class Controller {
      */
     private PrintStream printStream;
 
-    /** Check if it's a new game */
-    private boolean isNewGame = false;
-
     /** Check the state of the game */
     private boolean isGameGoing = true;
 
@@ -67,15 +64,18 @@ public class Controller {
 
     /** Starts new game, initializes the field and makes player wait for an opponent's turn */
     public void newGame() {
-        if (!isNewGame) {
-            printStream.print(0);
-            printStream.flush();
-        }
+        printStream.print(0);
+        printStream.flush();
         field = new TicTacToeField();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 buttons[i][j].textProperty().setValue("");
             }
+        }
+        if (user.equals(USER.CLIENT)) {
+            waitTurn();
+        } else if (user.equals(USER.SERVER)) {
+            unlockButtons();
         }
     }
 
@@ -89,16 +89,9 @@ public class Controller {
                         current.textProperty().setValue(field.whichPlayer());
                         printStream.write(10 * (i + 1) + (j + 1));
                         printStream.flush();
-                        if (user.equals(USER.CLIENT)) {
-                            if (field.isGameOver() == TicTacToeField.StateOfGame.PLAYING) {
-                                gameProgress.setText("Your turn");
-                                waitTurn();
-                            }
-                        } else {
-                            if (field.isGameOver() == TicTacToeField.StateOfGame.PLAYING) {
-                                gameProgress.setText("Wait your turn");
-                                waitTurn();
-                            }
+                        if (field.isGameOver() == TicTacToeField.StateOfGame.PLAYING) {
+                            gameProgress.setText("Wait your turn");
+                            waitTurn();
                         }
                     }
                     checkGameState();
@@ -109,6 +102,7 @@ public class Controller {
 
     /** Creates thread to wait for opponent's turn */
     public void waitTurn() {
+        lockButtons();
         new Thread(() -> {
             int status = -1;
             while (true) {
@@ -136,9 +130,8 @@ public class Controller {
      * if it's -1, then opponent exited
      * @param status - determines if the game ended or which turn opponent made
      */
-    public void opponentTurn(int status) {
+    private void opponentTurn(int status) {
         if (status == 0) {
-            isNewGame = true;
             newGame();
         } else if (status == -1) {
             Alert exitMessage = new Alert(Alert.AlertType.INFORMATION);
@@ -147,15 +140,17 @@ public class Controller {
             exitMessage.showAndWait();
             isGameGoing = false;
             Platform.exit();
-        } else if (status >= 11 && status <= 99) {
-            field.turn(status / 10 - 1, status % 10 - 1);
-            buttons[status / 10 - 1][status % 10 - 1].textProperty().setValue(field.whichPlayer());
+        } else if (status >= 11 && status <= 33) {
+            field.turn((status / 10) - 1, (status % 10) - 1);
+            buttons[(status / 10) - 1][(status % 10) - 1].textProperty().setValue(field.whichPlayer());
             checkGameState();
+            gameProgress.setText("Your turn");
+            unlockButtons();
         }
     }
 
     /** Checks game state */
-    public void checkGameState() {
+    private void checkGameState() {
         if (field.isGameOver() == TicTacToeField.StateOfGame.XWON) {
             endGame("1st player won");
         }
@@ -168,11 +163,10 @@ public class Controller {
     }
 
     /** Ends the game with given result */
-    public void endGame(String string) {
+    private void endGame(String string) {
         Alert endMessage = new Alert(Alert.AlertType.INFORMATION);
         endMessage.setTitle("Game over");
         endMessage.setContentText(string);
-        isNewGame = true;
         endMessage.showAndWait();
         newGame();
     }
@@ -188,18 +182,27 @@ public class Controller {
         printStream.flush();
     }
 
-    /** Closes connection */
-    public void closeConnection() {
-        try {
-            client.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     /** Sets streams */
     public void setStreams(InputStream inputStream, PrintStream printStream) {
         this.inputStream = inputStream;
         this.printStream = printStream;
+    }
+
+    /** Locks all buttons */
+    private void lockButtons() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                buttons[i][j].setDisable(true);
+            }
+        }
+    }
+
+    /** Unlocks all buttons */
+    private void unlockButtons() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                buttons[i][j].setDisable(false);
+            }
+        }
     }
 }

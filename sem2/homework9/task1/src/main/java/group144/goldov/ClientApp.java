@@ -20,19 +20,14 @@ public class ClientApp extends Application {
     /** Starts client app */
     @Override
     public void start(Stage primaryStage) throws IOException {
-        System.out.println("Please enter port");
-        Scanner reader = new Scanner(System.in);
-        int port = reader.nextInt();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
-        Parent root = loader.load();
         clientController = loader.getController();
-        clientController.setPort(port);
+        Parent root = loader.load();
         primaryStage.setTitle("Tic tac toe player");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMinHeight(500);
         primaryStage.setMinWidth(450);
         primaryStage.show();
-
     }
 
     /** Stops client app */

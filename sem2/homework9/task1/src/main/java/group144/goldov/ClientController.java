@@ -10,10 +10,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.Scanner;
 
 /** Client controller for the two-players Tic Tac Toe game */
 public class ClientController {
-    private int port = 4999;
+    private int port;
 
     @FXML
     private GridPane scene;
@@ -37,6 +38,9 @@ public class ClientController {
 
     /** Initializes controller */
     public void initialize() {
+        System.out.println("Please enter port");
+        Scanner reader = new Scanner(System.in);
+        port = reader.nextInt();
         clientController = new Controller(scene, Controller.USER.CLIENT, gameProgress);
         Alert message = new Alert(Alert.AlertType.INFORMATION);
         message.setContentText("Click to try to connect");
@@ -57,7 +61,7 @@ public class ClientController {
     }
 
     @FXML
-    private void newGame() {
+    private void newGame(javafx.event.ActionEvent actionEvent) {
         clientController.newGame();
     }
 
@@ -78,11 +82,10 @@ public class ClientController {
 
     /** Closes the client */
     public void closeConnection() {
-        clientController.closeConnection();
-    }
-
-    /** Sets port */
-    public void setPort(int port) {
-        this.port = port;
+        try {
+            client.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

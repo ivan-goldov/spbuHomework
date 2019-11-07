@@ -78,11 +78,10 @@ public class ServerController {
 
     /** Closes the client */
     public void closeConnection() {
-        serverController.closeConnection();
-    }
-
-    /** Returns port */
-    public int getPort() {
-        return port;
+        try {
+            client.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

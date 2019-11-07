@@ -19,6 +19,7 @@ public class ServerApp extends Application {
     /** Starts server app */
     @Override
     public void start(Stage primaryStage) throws IOException {
+        System.out.println("Port: 4999");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Server.fxml"));
         Parent root = loader.load();
         serverController = loader.getController();
@@ -27,7 +28,6 @@ public class ServerApp extends Application {
         primaryStage.setMinHeight(500);
         primaryStage.setMinWidth(450);
         primaryStage.show();
-        System.out.println(serverController.getPort());
     }
 
     /** Stops server app */
@@ -44,5 +44,4 @@ public class ServerApp extends Application {
             e.printStackTrace();
         }
     }
-
 }
