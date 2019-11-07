@@ -25,9 +25,6 @@ public class ClientController {
     @FXML
     private TextField gameProgress;
 
-    @FXML
-    private Button startGame;
-
     private InputStream inputStream;
 
     private PrintStream printStream;
@@ -58,11 +55,6 @@ public class ClientController {
         }
         gameProgress.setText("Wait your turn");
         clientController.waitTurn();
-    }
-
-    @FXML
-    private void newGame(javafx.event.ActionEvent actionEvent) {
-        clientController.newGame();
     }
 
     @FXML

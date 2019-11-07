@@ -26,10 +26,6 @@ public class ServerController {
     @FXML
     private TextField gameProgress;
 
-    /** Button to start a game */
-    @FXML
-    private Button startGame;
-
     private InputStream inputStream;
 
     private PrintStream printStream;
@@ -54,11 +50,6 @@ public class ServerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    private void newGame(javafx.event.ActionEvent actionEvent) {
-        serverController.newGame();
     }
 
     @FXML

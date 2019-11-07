@@ -25,20 +25,18 @@ public class Controller {
     private GridPane scene;
 
     /** Checks current user */
-    public enum USER  {CLIENT, SERVER};
+    public enum USER  {CLIENT, SERVER}
 
     private USER user;
 
     /** Input stream to server:
-     * if it's 0, then button new game was pressed
-     * if it's an integer ij, where i = 1..9, j = 1..9, then opponent made turn
+     * if it's an integer ij, where i = 1..3, j = 1..3, then opponent made turn
      * if it's -1, then opponent exited
      */
     private InputStream inputStream;
 
     /** Print stream to server:
-     * if it's 0, then button new game was pressed
-     * if it's an integer ij, where i = 1..9, j = 1..9, then opponent made turn
+     * if it's an integer ij, where i = 1..3, j = 1..3, then opponent made turn
      * if it's -1, then opponent exited
      */
     private PrintStream printStream;
@@ -59,23 +57,6 @@ public class Controller {
                 buttons[i][j] = (Button) scene.getChildren().get(k);
                 k++;
             }
-        }
-    }
-
-    /** Starts new game, initializes the field and makes player wait for an opponent's turn */
-    public void newGame() {
-        printStream.print(0);
-        printStream.flush();
-        field = new TicTacToeField();
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                buttons[i][j].textProperty().setValue("");
-            }
-        }
-        if (user.equals(USER.CLIENT)) {
-            waitTurn();
-        } else if (user.equals(USER.SERVER)) {
-            unlockButtons();
         }
     }
 
@@ -125,15 +106,12 @@ public class Controller {
     }
 
     /** Proceeds opponent's turn
-     * if it's 0, then button new game was pressed
-     * if it's an integer ij, where i = 1..9, j = 1..9, then opponent made turn
+     * if it's an integer ij, where i = 1..3, j = 1..3, then opponent made turn
      * if it's -1, then opponent exited
      * @param status - determines if the game ended or which turn opponent made
      */
     private void opponentTurn(int status) {
-        if (status == 0) {
-            newGame();
-        } else if (status == -1) {
+        if (status == -1) {
             Alert exitMessage = new Alert(Alert.AlertType.INFORMATION);
             exitMessage.setTitle("Game Over");
             exitMessage.setContentText("Opponent has left");
@@ -168,7 +146,7 @@ public class Controller {
         endMessage.setTitle("Game over");
         endMessage.setContentText(string);
         endMessage.showAndWait();
-        newGame();
+
     }
 
     /** Checks if game's still in progress */
@@ -178,7 +156,7 @@ public class Controller {
 
     /** Sends exit message if user exited */
     public void sendExitMessage() {
-        printStream.print(-1);
+        printStream.write(-1);
         printStream.flush();
     }
 
