@@ -66,6 +66,6 @@
             </font>
         </Button>
         <Button mnemonicParsing="false" onAction="#newGame" style="-fx-background-color: white;" text="New Game" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <TextField fx:id="gameProgress" prefHeight="89.0" prefWidth="133.0" GridPane.columnIndex="2" />
+      <TextField fx:id="gameProgress" editable="false" prefHeight="79.0" prefWidth="111.0" GridPane.columnIndex="2" />
     </children>
 </GridPane>
