@@ -120,10 +120,10 @@ public class Controller {
             Platform.exit();
         } else if (status >= 11 && status <= 33) {
             field.turn((status / 10) - 1, (status % 10) - 1);
+            unlockButtons();
+            gameProgress.setText("Your turn");
             buttons[(status / 10) - 1][(status % 10) - 1].textProperty().setValue(field.whichPlayer());
             checkGameState();
-            gameProgress.setText("Your turn");
-            unlockButtons();
         }
     }
 
@@ -142,6 +142,8 @@ public class Controller {
 
     /** Ends the game with given result */
     private void endGame(String string) {
+        lockButtons();
+        gameProgress.setText("Game is over");
         Alert endMessage = new Alert(Alert.AlertType.INFORMATION);
         endMessage.setTitle("Game over");
         endMessage.setContentText(string);
