@@ -41,7 +41,6 @@ public class ClientApp extends Application {
         try {
             super.stop();
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

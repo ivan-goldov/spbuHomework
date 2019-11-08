@@ -1,5 +1,7 @@
 package group144.goldov;
 
+import javax.swing.plaf.nimbus.State;
+
 /** Tic Tac Toe field */
 public class TicTacToeField {
     private final int size = 3;
@@ -33,29 +35,51 @@ public class TicTacToeField {
      * Returns the result of the game or informs that the game isn't over yet
      */
     public StateOfGame isGameOver() {
+        boolean isWonByColumn = true;
+        boolean isWonByLine = true;
         for (int i = 0; i < size; i++) {
-            if (states[i][0] == states[i][1] && states[i][0] == states[i][2] && states[i][0] == StateOfButton.X) {
+            for (int j = 0; j < size - 1; j++) {
+                if (!(states[i][j] == states[i][j + 1] && states[i][j] == StateOfButton.X)) {
+                    isWonByColumn = false;
+                }
+                if (!(states[j][i] == states[j + 1][i] && states[j][i] == StateOfButton.X)) {
+                    isWonByLine = false;
+                }
+            }
+            if (isWonByColumn || isWonByLine) {
                 return StateOfGame.XWON;
-            } else if (states[i][0] == states[i][1] &&
-                    states[i][0] == states[i][2] && states[i][0] == StateOfButton.O) {
+            }
+        }
+        isWonByColumn = true;
+        isWonByLine = true;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - 1; j++) {
+                if (!(states[i][j] == states[i][j + 1] && states[i][j] == StateOfButton.O)) {
+                    isWonByColumn = false;
+                }
+                if (!(states[j][i] == states[j + 1][i] && states[j][i] == StateOfButton.O)) {
+                    isWonByLine = false;
+                }
+            }
+            if (isWonByColumn || isWonByLine) {
                 return StateOfGame.OWON;
             }
         }
-        for (int i = 0; i < size; i++) {
-            if (states[0][i] == states[1][i] && states[0][i] == states[2][i] && states[0][i] == StateOfButton.X) {
-                return StateOfGame.XWON;
-            } else if (states[0][i] == states[1][i] && states[0][i] == states[2][i] &&
-                    states[0][i] == StateOfButton.O) {
-                return StateOfGame.OWON;
+        boolean isWonByDiag = true;
+        for (int i = 0; i < size - 1; i++) {
+            if (states[i][i] != states[i + 1][i + 1]) {
+                isWonByDiag = false;
             }
         }
-        if ((states[0][0] == states[1][1] && states[0][0] == states[2][2]) ||
-                (states[0][2] == states[1][1] && states[0][2]== states[2][0])) {
-            if (states[1][1] == StateOfButton.X) {
-                return StateOfGame.XWON;
-            } else if (states[1][1] == StateOfButton.O) {
-                return StateOfGame.OWON;
+        for (int i = 1; i < size - 1; i++) {
+            if (states[0][size - 1] == states[i][i] && states[0][size - 1] == states[i + 1][i - 1]) {
+                isWonByDiag = false;
             }
+        }
+        if (isWonByDiag && states[size - 1][size - 1] == StateOfButton.X) {
+            return StateOfGame.XWON;
+        } else if (isWonByDiag && states[size - 1][size - 1] == StateOfButton.O) {
+            return StateOfGame.OWON;
         }
         boolean isDraw = true;
         for (int i = 0; i < size; i++) {
