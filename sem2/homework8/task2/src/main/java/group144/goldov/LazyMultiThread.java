@@ -8,7 +8,7 @@ public class LazyMultiThread<T> implements Lazy<T> {
     private T value;
 
     public LazyMultiThread(Supplier<T> supplier) {
-        this.supplier = new ModifiedSupplier(supplier);
+        this.supplier = new ModifiedSupplier<>(supplier);
     }
 
     /**
